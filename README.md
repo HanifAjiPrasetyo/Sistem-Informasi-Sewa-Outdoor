@@ -2,6 +2,7 @@
 <h4>Kelompok 6 | TI-2C</h4>
 <h5>Anggota Kelompok    :</h5>
 <ul>
-    <li><h6>Hanif Aji Prasetyo (15 / 2141720090)</h6>    
+    <li><h6>Hanif Aji Prasetyo (15 / 2141720090)</h6>  
+    <li><h6>Indrayana Dian Prasetya (16 / 2141720132)</h6>   
 </ul>
 

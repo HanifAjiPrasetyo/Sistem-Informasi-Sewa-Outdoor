@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        'title' => "Home"
-    ]);
+    return view('welcome');
 });
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard.index');
+    });
+    Route::get('/members', function () {
+        return view('dashboard.members.index');
+    });
+    Route::get('/products', function () {
+        return view('dashboard.products.index');
+    });
+    Route::get('/billings', function () {
+        return view('dashboard.billings.index');
+    });
+    Route::get('/transactions', function () {
+        return view('dashboard.transactions.index');
+    });
+});
+
+Route::get('/login', fn () => view('login.index'));
+Route::get('/register', fn () => view('register.index'));

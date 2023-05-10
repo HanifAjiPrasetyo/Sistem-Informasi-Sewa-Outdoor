@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-
-    {{-- Scripts --}}
-    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <title>Malang Camp | {{ $title }}</title>
+    @include('layouts.head-content')
 </head>
 
-<body>
+<body class="bg-gray-200">
 
+    <header class="bg-gradient-dark">
+        @yield('header')
+    </header>
 
-    <div class="container">
-        @yield('container')
+    @include('layouts.navbar')
+
+    <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+
+        <section class="py-7">
+            @yield('container')
+        </section>
+
     </div>
 
+    @include('layouts.footer')
+
+    @include('layouts.foot-content')
 
 </body>
 

@@ -20,19 +20,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pe-1" href="https://dribbble.com/creativetim" target="_blank">
-                                <i class="fab fa-dribbble text-lg opacity-8"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link pe-1" href="https://github.com/creativetimofficial" target="_blank">
                                 <i class="fab fa-github text-lg opacity-8"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w"
-                                target="_blank">
-                                <i class="fab fa-youtube text-lg opacity-8"></i>
                             </a>
                         </li>
                     </ul>
@@ -137,17 +126,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="text-center">
-                    <p class="text-dark my-4 text-sm font-weight-normal">
-                        All rights reserved. Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Material Kit by <a href="https://www.creative-tim.com"
-                            target="_blank">Creative Tim</a>.
-                    </p>
                 </div>
             </div>
         </div>

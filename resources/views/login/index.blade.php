@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    @section('title')
+        Login
+    @endsection
     @include('dashboard.layouts.head-content')
 </head>
 
@@ -13,7 +16,7 @@
                 <nav
                     class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid ps-2 pe-0">
-                        <a class="navbar-brand ms-lg-0 ms-3" href="../pages/dashboard.html">
+                        <a class="navbar-brand ms-lg-0 ms-3" href="/">
                             <span class="text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -29,7 +32,7 @@
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                                        href="../pages/dashboard.html">
+                                        href="/dashboard">
                                         <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                                         Dashboard
                                     </a>
@@ -67,7 +70,7 @@
                 ">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container my-auto">
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -81,7 +84,7 @@
                                                 <i class="fa fa-facebook text-white text-lg"></i>
                                             </a>
                                         </div>
-                                        <div class="col-2 text-center px-1">
+                                        <div class="col-2 text-center px-2">
                                             <a class="btn btn-link px-3" href="javascript:;">
                                                 <i class="fa fa-github text-white text-lg"></i>
                                             </a>
@@ -115,8 +118,8 @@
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         Don't have an account?
-                                        <a href="../pages/sign-up.html"
-                                            class="text-success text-gradient font-weight-bold">Sign up</a>
+                                        <a href="/register" class="text-success text-gradient font-weight-bold">Sign
+                                            up</a>
                                     </p>
                                 </form>
                             </div>

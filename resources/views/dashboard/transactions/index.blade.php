@@ -1,5 +1,9 @@
 @extends('dashboard.layouts.main')
 
+@section('title')
+    Dashboard | Transactions
+@endsection
+
 @section('main-content')
 
 @section('active-menu')

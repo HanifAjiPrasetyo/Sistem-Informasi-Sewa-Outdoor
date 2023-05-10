@@ -7,7 +7,9 @@
 
 <body class="bg-gray-200">
 
-    @include('layouts.header')
+    <header class="bg-gradient-dark">
+        @yield('header')
+    </header>
 
     @include('layouts.navbar')
 

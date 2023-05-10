@@ -1,5 +1,9 @@
 @extends('dashboard.layouts.main')
 
+@section('title')
+    Dashboard | Members
+@endsection
+
 @section('main-content')
 
 @section('active-menu')

@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    @section('title')
+        Register
+    @endsection
     @include('dashboard.layouts.head-content')
 </head>
 
@@ -13,7 +16,7 @@
                 <nav
                     class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid ps-2 pe-0">
-                        <a class="navbar-brand ms-lg-0 ms-3" href="../pages/dashboard.html">
+                        <a class="navbar-brand ms-lg-0 ms-3" href="/">
                             <span class="text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
 
                         </a>
@@ -30,7 +33,7 @@
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                                        href="../pages/dashboard.html">
+                                        href="/dashboard">
                                         <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                                         Dashboard
                                     </a>
@@ -70,12 +73,13 @@
                             class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
                             <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
                                 style="
-                                        background-image: url('../assets/img/illustrations/illustration-signup.jpg');
+                                        background-image: url('../assets/img/illustrations/illustration-lock.jpg');
                                         background-size: cover;
                                     ">
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+                        <div
+                            class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5 shadow">
                             <div class="card card-plain">
                                 <div class="card-header">
                                     <h4 class="font-weight-bolder">
@@ -120,8 +124,8 @@
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-2 text-sm mx-auto">
                                         Already have an account?
-                                        <a href="../pages/sign-in.html"
-                                            class="text-success text-gradient font-weight-bold">Sign in</a>
+                                        <a href="/login" class="text-success text-gradient font-weight-bold">Sign
+                                            in</a>
                                     </p>
                                 </div>
                             </div>

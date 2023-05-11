@@ -32,7 +32,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                            Categories 1
+                                            Backpack
                                         </h6>
                                     </a>
                                 </li>
@@ -40,7 +40,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                            Categories 2
+                                            Tent
                                         </h6>
                                     </a>
                                 </li>
@@ -48,7 +48,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                            Categories 3
+                                            Other Equipment
                                         </h6>
                                     </a>
                                 </li>
@@ -59,19 +59,19 @@
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                        Categories 1
+                                        Backpack
                                     </h6>
                                 </a>
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                        Categories 1
+                                        Tent
                                     </h6>
                                 </a>
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                                        Categories 1
+                                        Other Equipment
                                     </h6>
                                 </a>
                             </div>

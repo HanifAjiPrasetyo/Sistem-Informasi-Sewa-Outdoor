@@ -31,12 +31,11 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/billings', function () {
         return view('dashboard.billings.index');
     });
-    Route::get('/transactions', function () {
-        return view('dashboard.transactions.index');
+    Route::get('/profile', function () {
+        return view('dashboard.edit_profile.index');
     });
 });
 
 Route::get('/user/cart', fn () => view('user.cart'));
-
 Route::get('/login', fn () => view('login.index'));
 Route::get('/register', fn () => view('register.index'));

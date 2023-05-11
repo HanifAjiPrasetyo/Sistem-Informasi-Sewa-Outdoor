@@ -5,6 +5,7 @@
                 <li class="breadcrumb-item text-sm">
                     <a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                 </li>
+                    @yield('active-menu-parent')
                 <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
                     @yield('active-menu')
                 </li>

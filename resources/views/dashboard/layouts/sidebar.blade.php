@@ -28,7 +28,7 @@
                     </h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/members') ? 'active bg-gradient-success' : '' }} text-white"
+                    <a class="nav-link {{ Request::is('dashboard/members','dashboard/profile') ? 'active bg-gradient-success' : '' }} text-white"
                         href="/dashboard/members">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">people</i>

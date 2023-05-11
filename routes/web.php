@@ -34,6 +34,9 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/transactions', function () {
         return view('dashboard.transactions.index');
     });
+    Route::get('/profile', function () {
+        return view('dashboard.profile.index');
+    });
 });
 
 Route::get('/user/cart', fn () => view('user.cart'));

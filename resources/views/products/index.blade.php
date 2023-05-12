@@ -43,7 +43,8 @@
                                     </small>
                                     <small class="mb-0 d-block">
                                         IDR100.000,00/day
-                                        <a href="/" class="fw-bold fs-4 mx-3">→</a>
+                                        <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" data-bs-title="Read More">→</a>
                                     </small>
                                 </div>
                             </div>

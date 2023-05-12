@@ -43,3 +43,4 @@ Route::get('/user/cart', fn () => view('user.cart'));
 
 Route::get('/login', fn () => view('login.index'));
 Route::get('/register', fn () => view('register.index'));
+Route::get('/products', fn () => view('products.index'));

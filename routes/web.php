@@ -32,7 +32,7 @@ Route::prefix('dashboard')->group(function () {
         return view('dashboard.billings.index');
     });
     Route::get('/profile', function () {
-        return view('dashboard.edit_profile.index');
+        return view('dashboard.edit-profile.index');
     });
 });
 

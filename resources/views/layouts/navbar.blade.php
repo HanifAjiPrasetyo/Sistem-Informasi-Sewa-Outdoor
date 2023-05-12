@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/register">
+                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/user/cart">
                         <i class="material-icons opacity-6 me-2 text-md">shopping_cart</i>
                         Cart
                     </a>

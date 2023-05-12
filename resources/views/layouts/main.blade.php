@@ -15,7 +15,7 @@
 
     <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
-        <section class="py-7">
+        <section class="py-3">
             @yield('container')
         </section>
 

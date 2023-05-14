@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('header')
-    <div class="page-header min-vh-75" style="background-image: url('../assets/img/bg9.jpg');">
+    <div class="page-header min-vh-100" style="background-image: url('../assets/img/bg9.jpg');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">

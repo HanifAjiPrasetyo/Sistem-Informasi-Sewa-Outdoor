@@ -14,11 +14,13 @@
             <div class="col-12">
                 <!-- Navbar -->
                 <nav
-                    class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand ms-lg-0 ms-3" href="/">
-                            <span class="text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
+                            <span class="text-light fs-5 fw-normal"><span
+                                    class="fw-bold text-success">MALANG</span>CAMP</span>
                         </a>
+                    </div>
                 </nav>
                 <!-- End Navbar -->
             </div>
@@ -31,7 +33,7 @@
                 ">
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container my-auto">
-                <div class="row mt-5">
+                <div class="row mt-2">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -39,23 +41,6 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign in
                                     </h4>
-                                    <div class="row mt-3">
-                                        <div class="col-2 text-center ms-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-facebook text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-2 text-center px-2">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-github text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-2 text-center me-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-google text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

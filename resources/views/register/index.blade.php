@@ -16,8 +16,11 @@
                 <nav
                     class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent">
                     <div class="container-fluid ps-2 pe-0">
-                        <span class="text-light fs-5 fw-normal"><span
-                                class="fw-bold text-success">MALANG</span>CAMP</span>
+                        <a class="navbar-brand ms-lg-0 ms-3" href="/">
+                            <span class="text-light fs-5 fw-normal"><span
+                                    class="fw-bold text-success">MALANG</span>CAMP</span>
+                        </a>
+                    </div>
                 </nav>
                 <!-- End Navbar -->
             </div>

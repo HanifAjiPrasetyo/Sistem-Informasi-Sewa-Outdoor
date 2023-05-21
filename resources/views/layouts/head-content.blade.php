@@ -1,7 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-<title>MalangCamp</title>
+<title>@yield('title')</title>
 <link rel="canonical" href="https://www.creative-tim.com/product/material-kit" />
 
 <meta name="keywords"

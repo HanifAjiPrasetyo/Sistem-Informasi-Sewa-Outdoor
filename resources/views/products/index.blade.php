@@ -1,12 +1,16 @@
 @extends('layouts.main')
 
+@section('title')
+    Products
+@endsection
+
 @section('header')
-    <div class="page-header min-vh-50" style="background-image: url('../assets/img/bg9.jpg');">
+    <div class="page-header" style="background-image: url('https://source.unsplash.com/1200x800?camp'); height:43vh">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mx-auto my-auto">
-                    <h2 class="text-white">PRODUCTS</h2>
+                <div class="col-lg-4 text-center">
+                    <h3 class="text-white shadow-lg p-3">PRODUCTS</h3>
                 </div>
             </div>
         </div>
@@ -14,24 +18,24 @@
 @endsection
 
 @section('container')
-    <div class="container bg-gradient-dark rounded-3">
-        <div class="p-3">
+    <div class="container shadow-lg rounded bg-gray-700">
+        <div class="p-4">
             <div class="row">
-                <div class="col-md-8 text-start mb-4">
-                    <h3 class="text-white z-index-1 position-relative">
+                <div class="col-md-6 text-start mb-4 mt-2">
+                    <h3 class="text-light fw-bold z-index-1 position-relative">
                         All Products
                     </h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-8">
-                    <div class="card card-profile mt-3">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <div class="card card-profile">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
                                 <a href="javascript:;">
                                     <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" width="100" />
+                                        <img class="border-radius-md shadow-lg img-fluid"
+                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
                                     </div>
                                 </a>
                             </div>
@@ -44,21 +48,21 @@
                                     <small class="mb-0 d-block">
                                         IDR100.000,00/day
                                         <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Read More">→</a>
+                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-8">
-                    <div class="card card-profile mt-3">
+                <div class="col-md-5 mb-4">
+                    <div class="card card-profile">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
                                 <a href="javascript:;">
                                     <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" width="100" />
+                                        <img class="border-radius-md shadow-lg img-fluid"
+                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
                                     </div>
                                 </a>
                             </div>
@@ -71,21 +75,21 @@
                                     <small class="mb-0 d-block">
                                         IDR100.000,00/day
                                         <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Read More">→</a>
+                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-8">
-                    <div class="card card-profile mt-3">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-profile">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
                                 <a href="javascript:;">
                                     <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" width="100" />
+                                        <img class="border-radius-md shadow-lg img-fluid"
+                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
                                     </div>
                                 </a>
                             </div>
@@ -98,7 +102,7 @@
                                     <small class="mb-0 d-block">
                                         IDR100.000,00/day
                                         <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Read More">→</a>
+                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
                                     </small>
                                 </div>
                             </div>

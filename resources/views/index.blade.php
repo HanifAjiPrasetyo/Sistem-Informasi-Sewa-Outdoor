@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
+@section('title')
+    MalangCamp
+@endsection
+
 @section('header')
-    <div class="page-header min-vh-100" style="background-image: url('../assets/img/bg9.jpg');">
+    <div class="page-header min-vh-100" style="background-image: url('https://source.unsplash.com/1200x800?camp');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">
@@ -58,7 +62,7 @@
                 </div>
             </div>
             <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
-                <div class="card">
+                <div class="card bg-gray-400">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <a class="d-block blur-shadow-image">
                             <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"

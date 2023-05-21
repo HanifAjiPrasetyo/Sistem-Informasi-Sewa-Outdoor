@@ -14,7 +14,7 @@
             <div class="col-12">
                 <!-- Navbar -->
                 <nav
-                    class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent">
+                    class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand ms-lg-0 ms-3" href="/">
                             <span class="text-light fs-5 fw-normal"><span
@@ -32,8 +32,40 @@
                     background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
                 ">
             <span class="mask bg-gradient-dark opacity-6"></span>
+
             <div class="container my-auto">
-                <div class="row mt-2">
+
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2 mx-2"></i></span>
+                        <span class="alert-text">{{ session('success') }}</span>
+                        <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
+                @if (session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <div class="d-flex align-items-center">
+                            <span class="material-icons fs-4">
+                                report_problem
+                            </span>
+                            <span class="alert-text mx-2 pt-1 fs-5">{{ session('loginError') }}</span>
+                        </div>
+                        <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
+                <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -44,21 +76,26 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" />
+                                <form role="form" class="text-start" method="post" action="/login">
+                                    @csrf
+                                    <div class="input-group input-group-outline my-3 py-2">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            id="email" name="email" value="{{ old('email') }}" required
+                                            autofocus />
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" />
-                                    </div>
-                                    <div class="form-check form-switch d-flex align-items-center mb-3">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe" checked />
-                                        <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+                                    <div class="input-group input-group-outline mb-3 py-2">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            required />
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-success w-100 my-4 mb-2">
+                                        <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
                                             Sign in
                                         </button>
                                     </div>

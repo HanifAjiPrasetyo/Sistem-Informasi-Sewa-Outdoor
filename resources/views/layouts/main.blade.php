@@ -13,7 +13,7 @@
 
     @include('layouts.navbar')
 
-    <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n7 bg-gray-500">
+    <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n7 bg-gray-400">
 
         <section class="py-5">
             @yield('container')

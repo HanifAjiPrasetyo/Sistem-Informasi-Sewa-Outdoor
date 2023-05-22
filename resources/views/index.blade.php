@@ -10,14 +10,12 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mx-auto my-auto">
-                    <h2 class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, recusandae!
-                    </h2>
-                    <p class="lead mb-4 text-white opacity-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Corrupti
-                        recusandae iure cumque optio officia incidunt consequatur accusamus ab eius quasi!</p>
-                    <button type="submit" class="btn bg-white text-dark">Sewa Sekarang ! <span
+                    <h2 class="text-white">Temukan Alat Camping-mu dengan Mudah</h2>
+                    <p class="lead mb-4 text-white opacity-8">Kemudahan dalam Menyewa Peralatan Camping untuk Memastikan Anda
+                        Siap dengan Perlengkapan Terbaik saat Menjelajahi Alam</p>
+                    <a href="/products" class="btn shadow-lg bg-white text-dark">Sewa Sekarang ! <span
                             class="material-icons">arrow_forward</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

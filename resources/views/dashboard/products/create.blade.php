@@ -26,8 +26,9 @@
                                 @csrf
                                 <div class="input-group input-group-static mb-4">
                                     <label for="image">Image</label>
+                                    <img class="img-preview img-fluid rounded m-auto col-sm-5">
                                     <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                        id="image" name="image">
+                                        id="image" name="image" onchange="previewImg()">
                                     @error('image')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -98,9 +99,24 @@
     </div>
 
     <script>
-        document.addEventListener('trix-file-accept', (e) =>
+        document.addEventListener('trix-file-accept', function(e) {
             e.preventDefault();
-        )
+        })
+
+        // Preview Image
+        function previewImg() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 @endsection
 

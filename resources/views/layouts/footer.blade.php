@@ -4,23 +4,15 @@
             <div class="col-md-3 mb-4 ms-auto">
                 <div>
                     <div class="mb-4">
-                        <span class="ms-1 text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
+                        <span class="ms-1 text-dark fs-5"><span
+                                class="font-weight-bold text-success">MALANG</span>CAMP</span>
                     </div>
                 </div>
                 <div>
-                    <ul class="d-flex flex-row ms-n3 nav">
+                    <ul class="d-flex flex-row nav">
                         <li class="nav-item">
-                            <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim" target="_blank">
-                                <i class="fab fa-facebook text-lg opacity-8"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="https://twitter.com/creativetim" target="_blank">
-                                <i class="fab fa-twitter text-lg opacity-8"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="https://github.com/creativetimofficial" target="_blank">
+                            <a class="nav-link pe-1" href="https://github.com/HanifAjiPrasetyo/kelompok6_proyek_web"
+                                target="_blank">
                                 <i class="fab fa-github text-lg opacity-8"></i>
                             </a>
                         </li>

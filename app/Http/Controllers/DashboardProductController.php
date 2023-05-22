@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardProductController extends Controller
 {
@@ -14,7 +16,7 @@ class DashboardProductController extends Controller
     public function index()
     {
         return view('dashboard.products.index', [
-            'products' => Product::all()
+            'products' => Product::latest()->paginate(2)
         ]);
     }
 
@@ -66,7 +68,10 @@ class DashboardProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('dashboard.products.edit', [
+            'categories' => ProductCategory::all(),
+            'product' => $product
+        ]);
     }
 
     /**
@@ -74,7 +79,27 @@ class DashboardProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'image' => 'image|file|max:1024',
+            'name' => 'required|max:255',
+            'category_id' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
+
+        if ($request->file('image')) {
+
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+
+            $validated['image'] = $request->file('image')->store('product-images');
+        }
+
+        Product::where('id', $product->id)->update($validated);
+
+        return redirect('/dashboard/products')->with('success', 'Product has been successfully updated!');
     }
 
     /**
@@ -82,6 +107,12 @@ class DashboardProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+
+        return redirect('/dashboard/products')->with('success', 'Product has been deleted!');
     }
 }

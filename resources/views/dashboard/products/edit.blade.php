@@ -16,17 +16,25 @@
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3 d-flex">
                             <h6 class="text-white text-capitalize ps-3">
-                                Add Product
+                                Edit Product
                             </h6>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="col-lg-7 m-auto shadow-lg rounded p-4">
-                            <form action="/dashboard/products" method="post" enctype="multipart/form-data">
+                            <form action="/dashboard/products/{{ $product->id }}" method="post"
+                                enctype="multipart/form-data">
+                                @method('put')
                                 @csrf
                                 <div class="input-group input-group-static mb-4">
                                     <label for="image">Image</label>
-                                    <img class="img-preview img-fluid rounded m-auto col-sm-5">
+                                    <input type="hidden" name="oldImage" value="{{ $product->image }}">
+                                    @if ($product->image)
+                                        <img src="{{ asset('storage/' . $product->image) }}"
+                                            class="img-preview img-fluid rounded m-auto col-sm-5">
+                                    @else
+                                        <img class="img-preview img-fluid rounded m-auto col-sm-5">
+                                    @endif
                                     <input type="file" class="form-control @error('image') is-invalid @enderror"
                                         id="image" name="image" onchange="previewImg()">
                                     @error('image')
@@ -38,7 +46,7 @@
                                 <div class="input-group input-group-static mb-4">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        id="name" name="name" value="{{ old('name') }}">
+                                        id="name" name="name" value="{{ old('name', $product->name) }}">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -50,7 +58,7 @@
                                     <select type="text" class="form-control" name="category_id" id="category">
                                         <option selected>--Select Category--</option>
                                         @foreach ($categories as $category)
-                                            @if (old('category_id') == $category->id)
+                                            @if (old('category_id', $product->category_id) == $category->id)
                                                 <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                                             @else
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -64,13 +72,13 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                     <input type="hidden" id="description" name="description"
-                                        value="{{ old('description') }}">
+                                        value="{{ old('description', $product->description) }}">
                                     <trix-editor input="description"></trix-editor>
                                 </div>
                                 <div class="input-group input-group-static mb-4">
                                     <label for="price">Price</label>
                                     <input type="number" class="form-control @error('price') is-invalid @enderror"
-                                        id="price" name="price" value="{{ old('price') }}">
+                                        id="price" name="price" value="{{ old('price', $product->price) }}">
                                     @error('price')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -80,7 +88,7 @@
                                 <div class="input-group input-group-static mb-4">
                                     <label for="stock">Stock</label>
                                     <input type="number" class="form-control @error('stock') is-invalid @enderror"
-                                        id="stock" name="stock" value="{{ old('stock') }}">
+                                        id="stock" name="stock" value="{{ old('stock', $product->stock) }}">
                                     @error('stock')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -88,7 +96,7 @@
                                     @enderror
                                 </div>
                                 <center>
-                                    <button type="submit" class="btn btn-success">Add</button>
+                                    <button type="submit" class="btn btn-success">Update</button>
                                 </center>
                             </form>
                         </div>

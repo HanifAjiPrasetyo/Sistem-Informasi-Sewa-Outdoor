@@ -14,49 +14,12 @@
             <div class="col-12">
                 <!-- Navbar -->
                 <nav
-                    class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand ms-lg-0 ms-3" href="/">
-                            <span class="text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
+                            <span class="text-light fs-5 fw-normal"><span
+                                    class="fw-bold text-success">MALANG</span>CAMP</span>
                         </a>
-                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon mt-2">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                                        href="/dashboard">
-                                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/profile.html">
-                                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                        Profile
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/sign-up.html">
-                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                        Sign Up
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/sign-in.html">
-                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Sign In
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </nav>
                 <!-- End Navbar -->
@@ -69,8 +32,40 @@
                     background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
                 ">
             <span class="mask bg-gradient-dark opacity-6"></span>
+
             <div class="container my-auto">
-                <div class="row mt-5">
+
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2 mx-2"></i></span>
+                        <span class="alert-text">{{ session('success') }}</span>
+                        <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
+                @if (session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <div class="d-flex align-items-center">
+                            <span class="material-icons fs-4">
+                                report_problem
+                            </span>
+                            <span class="alert-text mx-2 pt-1 fs-5">{{ session('loginError') }}</span>
+                        </div>
+                        <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
+                <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -78,41 +73,29 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign in
                                     </h4>
-                                    <div class="row mt-3">
-                                        <div class="col-2 text-center ms-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-facebook text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-2 text-center px-2">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-github text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-2 text-center me-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-google text-white text-lg"></i>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" />
+                                <form role="form" class="text-start" method="post" action="/login">
+                                    @csrf
+                                    <div class="input-group input-group-outline my-3 py-2">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            id="email" name="email" value="{{ old('email') }}" required
+                                            autofocus />
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" />
-                                    </div>
-                                    <div class="form-check form-switch d-flex align-items-center mb-3">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe" checked />
-                                        <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+                                    <div class="input-group input-group-outline mb-3 py-2">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            required />
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-success w-100 my-4 mb-2">
+                                        <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
                                             Sign in
                                         </button>
                                     </div>

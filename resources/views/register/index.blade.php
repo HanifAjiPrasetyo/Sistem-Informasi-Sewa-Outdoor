@@ -8,56 +8,18 @@
     @include('dashboard.layouts.head-content')
 </head>
 
-<body class="">
+<body class="bg-gray-200">
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
             <div class="col-12">
                 <!-- Navbar -->
                 <nav
-                    class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
+                    class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand ms-lg-0 ms-3" href="/">
-                            <span class="text-dark fs-5"><span class="font-weight-bold">MALANG</span>CAMP</span>
-
+                            <span class="text-light fs-5 fw-normal"><span
+                                    class="fw-bold text-success">MALANG</span>CAMP</span>
                         </a>
-                        <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon mt-2">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
-                                        href="/dashboard">
-                                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/profile.html">
-                                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                        Profile
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/sign-up.html">
-                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                        Sign Up
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link me-2" href="../pages/sign-in.html">
-                                        <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Sign In
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </nav>
                 <!-- End Navbar -->
@@ -65,75 +27,86 @@
         </div>
     </div>
     <main class="main-content mt-0">
-        <section>
-            <div class="page-header min-vh-100">
-                <div class="container">
-                    <div class="row">
-                        <div
-                            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
-                            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
-                                style="
-                                        background-image: url('../assets/img/illustrations/illustration-lock.jpg');
-                                        background-size: cover;
-                                    ">
-                            </div>
-                        </div>
-                        <div
-                            class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5 shadow">
-                            <div class="card card-plain">
-                                <div class="card-header">
-                                    <h4 class="font-weight-bolder">
+        <div class="page-header align-items-start min-vh-100"
+            style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-5 col-md-8 col-12 mx-auto">
+                        <div class="card z-index-0 fadeIn3 fadeInBottom">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 text-center text-light">
+                                <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign Up
                                     </h4>
                                     <p class="mb-0">
-                                        Enter your email and password to
-                                        register
+                                        Fill the fields to register
                                     </p>
                                 </div>
-                                <div class="card-body">
-                                    <form role="form">
-                                        <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" />
-                                        </div>
-                                        <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" />
-                                        </div>
-                                        <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" />
-                                        </div>
-                                        <div class="form-check form-check-info text-start ps-0">
-                                            <input class="form-check-input bg-success border-0" type="checkbox"
-                                                value="" id="flexCheckDefault" checked required />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                I agree the
-                                                <a href="javascript:;" class="text-dark font-weight-bolder">Terms and
-                                                    Conditions</a>
-                                            </label>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="button"
-                                                class="btn btn-lg bg-gradient-success btn-lg w-100 mt-4 mb-0">
-                                                Sign Up
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                    <p class="mb-2 text-sm mx-auto">
-                                        Already have an account?
+                            </div>
+                            <div class="card-body">
+                                <form role="form" class="text-start" method="post" action="/register">
+                                    @csrf
+                                    <div class="input-group input-group-outline my-3 py-2 ">
+                                        <label class="form-label" for="name">Name</label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            id="name" name="name" value="{{ old('name') }}" required />
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="input-group input-group-outline my-3 py-2">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input type="text"
+                                            class="form-control @error('username') is-invalid @enderror" id="username"
+                                            name="username" value="{{ old('username') }}" required />
+                                        @error('username')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="input-group input-group-outline my-3 py-2">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            id="email" name="email" value="{{ old('email') }}" required />
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 py-2">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password"
+                                            class="form-control @error('password') is-invalid @enderror" id="password"
+                                            name="password" required />
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn bg-gradient-success w-100 my-3 mb-2"
+                                            id="">
+                                            Sign up
+                                        </button>
+                                    </div>
+                                    <p class="mt-4 text-sm text-center">
+                                        Already have account?
                                         <a href="/login" class="text-success text-gradient font-weight-bold">Sign
                                             in</a>
                                     </p>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
     @include('dashboard.layouts.foot-content')
 </body>

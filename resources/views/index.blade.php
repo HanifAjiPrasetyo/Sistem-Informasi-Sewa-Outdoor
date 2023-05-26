@@ -11,8 +11,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mx-auto my-auto">
                     <h2 class="text-white">Find Your Camp Equipment</h2>
-                    <p class="lead mb-4 text-white opacity-8">Easy Rent, Easy Camp  </p>
-                    <a href="/products" class="btn shadow-lg bg-white text-dark">Sewa Sekarang ! <span
+                    <p class="lead mb-4 text-white opacity-8">Easy Rent, Easy Camp </p>
+                    <a href="/products" class="btn shadow-lg bg-white text-dark">Rent Now ! <span
                             class="material-icons">arrow_forward</span>
                     </a>
                 </div>

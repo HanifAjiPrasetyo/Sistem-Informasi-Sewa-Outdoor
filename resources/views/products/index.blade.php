@@ -23,7 +23,15 @@
             <div class="row">
                 <div class="col-md-6 text-start mb-4 mt-2">
                     <h3 class="text-light fw-bold z-index-1 position-relative">
-                        All Products
+                        @if (request('category'))
+                            <div class="text-capitalize">
+                                @foreach ($products as $product)
+                                    {{ $product->category->name }}
+                                @endforeach
+                            </div>
+                        @else
+                            All Products
+                        @endif
                     </h3>
                 </div>
             </div>
@@ -33,16 +41,20 @@
                         <div class="card card-profile">
                             <div class="row justify-content-center">
                                 <div class="col-lg-4 col-md-6 col-12 mt-n4">
-                                    <a href="javascript:;">
-                                        <div class="p-3 pe-md-0">
-                                            <img class="border-radius-md shadow-lg img-fluid"
-<<<<<<< HEAD
-                                                src="{{ asset('storage/' . $product->image) }}" alt="image" />
-=======
-                                                src="{{ asset('storage/'.$product->image) }}" alt="image"/>
->>>>>>> c498023812b22a4ad0f886d56f0071d412bd1c35
-                                        </div>
-                                    </a>
+                                    <div class="p-3 pe-md-0">
+                                        @if ($product->image)
+                                            <div class="col-lg-10">
+                                                <img class="border-radius-md shadow-lg img-fluid"
+                                                    src="{{ asset('storage/' . $product->image) }}" alt="image" />
+                                            </div>
+                                        @else
+                                            <div class="col-lg-10">
+                                                <img class="border-radius-md shadow-lg img-fluid"
+                                                    src="https://source.unsplash.com/300x300?camp" alt="image"
+                                                    width="300" />
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                                     <div class="card-body ps-lg-3">
@@ -60,6 +72,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 @endforeach
             </div>
         </div>

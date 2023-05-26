@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Product;
-use App\Models\User;
+
 
 
 /*
@@ -22,19 +23,15 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Home Routes
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/about-us', [HomeController::class, 'about']);
 
 // Dashboard Routes
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', fn () => view('dashboard.index', [
-        'products' => Product::all(),
-        'users' => User::all(),
-    ]))->middleware('admin');
-
-
+    Route::get('/', [DashboardController::class, 'index'])->middleware('admin');
 
     // Dashboard Product Routes
     Route::resource('/products', DashboardProductController::class)->middleware('admin');
@@ -64,7 +61,3 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-
-// Home Routes
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/about-us', fn () => view('about-us'));

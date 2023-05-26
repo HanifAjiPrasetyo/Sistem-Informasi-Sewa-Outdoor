@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
+<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
     <div class="container">
         <a class="navbar-brand text-white" href="/" rel="tooltip" title="" data-placement="bottom">
             <span class="ms-1 text-white fs-5"><span class="font-weight-bold text-success">MALANG</span>CAMP</span>
@@ -31,31 +31,31 @@
                                 <li class="nav-item list-group-item border-0 p-0">
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products">
                                         <h6
-                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                            class="h5 dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                             All Products
                                         </h6>
                                     </a>
                                 </li>
                                 <li class="nav-item list-group-item border-0 p-0">
-                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=1">
                                         <h6
-                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                             Backpack
                                         </h6>
                                     </a>
                                 </li>
                                 <li class="nav-item list-group-item border-0 p-0">
-                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=2">
                                         <h6
-                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                             Tent
                                         </h6>
                                     </a>
                                 </li>
                                 <li class="nav-item list-group-item border-0 p-0">
-                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=3">
                                         <h6
-                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                            class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                             Other Equipment
                                         </h6>
                                     </a>
@@ -66,25 +66,26 @@
                             <div class="col-md-12 g-0">
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products">
                                     <h6
-                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                        class="h5 dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         All Products
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=Backpack">
                                     <h6
-                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Backpack
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=Tent">
                                     <h6
-                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Tent
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md"
+                                    href="/products?category=Other Equipment">
                                     <h6
-                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
+                                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Other Equipment
                                     </h6>
                                 </a>
@@ -113,8 +114,13 @@
                         <a class="nav-link ps-2 d-flex pt-1 cursor-pointer" id="dropdownMenuDocs" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="d-flex align-items-center">
-                                <img src="{{ asset('storage/user-photos/no-photo.png') }}" alt="User Photo"
-                                    class="rounded-circle mx-2" width="30" height="30">
+                                @if (auth()->user()->photo)
+                                    <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="User Photo"
+                                        class="rounded-circle mx-2 img-fluid" width="30" height="30">
+                                @else
+                                    <img src="{{ asset('storage/user-photos/no-photo.png') }}" alt="User Photo"
+                                        class="rounded-circle mx-2 img-fluid" width="30" height="30">
+                                @endif
                                 Hi, {{ auth()->user()->username }}
                                 <i class="material-icons opacity-9 mx-1 text-md">keyboard_arrow_down</i>
                             </div>

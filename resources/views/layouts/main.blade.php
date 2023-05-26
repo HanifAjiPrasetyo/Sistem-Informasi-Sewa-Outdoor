@@ -17,6 +17,7 @@
 
         <section class="py-5">
             @yield('container')
+            @yield('category')
         </section>
 
     </div>

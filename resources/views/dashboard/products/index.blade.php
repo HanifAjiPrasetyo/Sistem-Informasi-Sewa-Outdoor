@@ -92,8 +92,8 @@
                                                     / day</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $product->stock }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $product->stock }}
+                                                </span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="/dashboard/products/{{ $product->id }}"
@@ -101,19 +101,30 @@
                                                     data-bs-toggle="tooltip" data-bs-title="Detail Product">
                                                     Detail
                                                 </a> |
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs mx-1"
+                                                <a href="/dashboard/products/{{ $product->id }}/edit"
+                                                    class="text-secondary font-weight-bold text-xs mx-1"
                                                     data-bs-toggle="tooltip" data-bs-title="Edit Product">
                                                     Edit
                                                 </a> |
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs mx-1"
-                                                    data-bs-toggle="tooltip" data-bs-title="Delete Product">
-                                                    Delete
-                                                </a>
+                                                <form action="/dashboard/products/{{ $product->id }}" method="post"
+                                                    class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="border-0 text-secondary font-weight-bold text-xs bg-transparent"
+                                                        data-bs-toggle="tooltip" data-bs-title="Delete Product"
+                                                        onclick="return confirm('Do you want to delete?')">
+                                                        Delete
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="pagination pagination-sm pagination-dark d-flex justify-content-center mt-3">
+                            {{ $products->links() }}
                         </div>
                     </div>
                 </div>

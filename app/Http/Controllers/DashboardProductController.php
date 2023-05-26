@@ -16,7 +16,7 @@ class DashboardProductController extends Controller
     public function index()
     {
         return view('dashboard.products.index', [
-            'products' => Product::latest()->paginate(2)
+            'products' => Product::all()
         ]);
     }
 

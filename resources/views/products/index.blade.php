@@ -36,7 +36,11 @@
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
                                             <img class="border-radius-md shadow-lg img-fluid"
+<<<<<<< HEAD
                                                 src="{{ asset('storage/' . $product->image) }}" alt="image" />
+=======
+                                                src="{{ asset('storage/'.$product->image) }}" alt="image"/>
+>>>>>>> c498023812b22a4ad0f886d56f0071d412bd1c35
                                         </div>
                                     </a>
                                 </div>
@@ -49,7 +53,8 @@
                                         <small class="mb-0 d-block">
                                             IDR {{ $product->price }} / day
                                             <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" data-bs-title="Detail Product">→</a>
+                                                data-bs-placement="top" data-bs-title="Detail Product">→
+                                            </a>
                                         </small>
                                     </div>
                                 </div>

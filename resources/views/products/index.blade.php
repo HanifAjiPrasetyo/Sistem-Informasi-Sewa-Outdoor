@@ -28,87 +28,35 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-5 mb-4">
-                    <div class="card card-profile">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg img-fluid"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
+                @foreach ($products as $product)
+                    <div class="col-md-5 mb-4">
+                        <div class="card card-profile">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 col-md-6 col-12 mt-n4">
+                                    <a href="javascript:;">
+                                        <div class="p-3 pe-md-0">
+                                            <img class="border-radius-md shadow-lg img-fluid"
+                                                src="https://source.unsplash.com/300x300?camp" alt="image" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                                    <div class="card-body ps-lg-3">
+                                        <h6 class="mb-0">{{ $product->name }}</h6>
+                                        <small class="text-info fw-bold">
+                                            {{ $product->category->name }}
+                                        </small>
+                                        <small class="mb-0 d-block">
+                                            IDR {{ $product->price }} / day
+                                            <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" data-bs-title="Detail Product">→</a>
+                                        </small>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-3">
-                                    <h6 class="mb-0">Camping Tent</h6>
-                                    <small class="text-info fw-bold">
-                                        Tent
-                                    </small>
-                                    <small class="mb-0 d-block">
-                                        IDR100.000,00/day
-                                        <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
-                                    </small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5 mb-4">
-                    <div class="card card-profile">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg img-fluid"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-3">
-                                    <h6 class="mb-0">Camping Tent</h6>
-                                    <small class="text-info fw-bold">
-                                        Tent
-                                    </small>
-                                    <small class="mb-0 d-block">
-                                        IDR100.000,00/day
-                                        <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card card-profile">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12 mt-n4">
-                                <a href="javascript:;">
-                                    <div class="p-3 pe-md-0">
-                                        <img class="border-radius-md shadow-lg img-fluid"
-                                            src="https://source.unsplash.com/300x300?camp" alt="image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-3">
-                                    <h6 class="mb-0">Camping Tent</h6>
-                                    <small class="text-info fw-bold">
-                                        Tent
-                                    </small>
-                                    <small class="mb-0 d-block">
-                                        IDR100.000,00/day
-                                        <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

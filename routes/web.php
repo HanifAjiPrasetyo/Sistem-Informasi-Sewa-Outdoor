@@ -6,6 +6,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Product;
+use App\Models\User;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +28,10 @@ Route::get('/', function () {
 // Dashboard Routes
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', fn () => view('dashboard.index'))->middleware('admin');
+    Route::get('/', fn () => view('dashboard.index', [
+        'products' => Product::all(),
+        'users' => User::all(),
+    ]))->middleware('admin');
 
     Route::get('/members', function () {
         return view('dashboard.members.index');

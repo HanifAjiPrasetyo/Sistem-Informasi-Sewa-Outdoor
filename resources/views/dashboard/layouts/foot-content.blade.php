@@ -290,3 +290,8 @@
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
+<script>
+    let productTable = new DataTable('#productTable', {
+        responsive: true
+    });
+</script>

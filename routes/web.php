@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -33,12 +34,13 @@ Route::prefix('dashboard')->group(function () {
         'users' => User::all(),
     ]))->middleware('admin');
 
-    Route::get('/members', function () {
-        return view('dashboard.members.index');
-    });
+
 
     // Dashboard Product Routes
     Route::resource('/products', DashboardProductController::class)->middleware('admin');
+
+    // Dashboard Member Routes
+    Route::resource('/members', DashboardMemberController::class)->middleware('admin');
 
     Route::get('/billings', function () {
         return view('dashboard.billings.index');

@@ -16,6 +16,12 @@
                                 <i class="fab fa-github text-lg opacity-8"></i>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link pe-1" href="https://api.whatsapp.com/send/?phone=6285755222360&text&type=phone_number&app_absent=0"
+                                target="_blank">
+                                <i class="fab fa-whatsapp text-lg opacity-8"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

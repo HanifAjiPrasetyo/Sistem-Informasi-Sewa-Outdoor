@@ -35,13 +35,5 @@ class DatabaseSeeder extends Seeder
             'slug' => 'other-equipment',
         ]);
 
-        Product::create([
-            'name' => 'Test',
-            'image' => '',
-            'description' => 'Test',
-            'price' => 1,
-            'stock' => 1,
-            'category_id' => 2
-        ]);
     }
 }

@@ -14,11 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('products.index', [
-<<<<<<< HEAD
             'products' => Product::all(),
-=======
-            'products' => Product::all()
->>>>>>> 2a079e170120e0ed3f66ed7f6d1586f5d3051779
         ]);
     }
 

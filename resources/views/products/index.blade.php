@@ -36,7 +36,7 @@
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
                                             <img class="border-radius-md shadow-lg img-fluid"
-                                                src="https://source.unsplash.com/300x300?camp" alt="image" />
+                                                src="{{ asset('storage/' . $product->image) }}" alt="image" />
                                         </div>
                                     </a>
                                 </div>
@@ -52,26 +52,9 @@
                                                 data-bs-placement="top" data-bs-title="Detail Product">→</a>
                                         </small>
                                     </div>
-<<<<<<< HEAD
-                                </a>
-                            </div>
-                            <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                <div class="card-body ps-lg-3">
-                                    <h6 class="mb-0">{{ $ }}</h6>
-                                    <small class="text-info fw-bold">
-                                        Tent
-                                    </small>
-                                    <small class="mb-0 d-block">
-                                        IDR100.000,00/day
-                                        <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Detail Product">→</a>
-                                    </small>
-=======
->>>>>>> 2a079e170120e0ed3f66ed7f6d1586f5d3051779
                                 </div>
                             </div>
                         </div>
-                    </div>
                 @endforeach
             </div>
         </div>

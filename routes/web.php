@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 // Home Routes
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{product:id}', [ProductController::class, 'show']);
 Route::get('/about-us', [HomeController::class, 'about']);
 
 // Dashboard Routes

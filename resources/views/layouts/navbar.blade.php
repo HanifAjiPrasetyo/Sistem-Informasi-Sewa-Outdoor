@@ -70,20 +70,19 @@
                                         All Products
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=Backpack">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=1">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Backpack
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=Tent">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=2">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Tent
                                     </h6>
                                 </a>
-                                <a class="dropdown-item py-2 ps-3 border-radius-md"
-                                    href="/products?category=Other Equipment">
+                                <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=3">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
                                         Other Equipment

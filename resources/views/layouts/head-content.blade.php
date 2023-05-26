@@ -4,37 +4,13 @@
 <title>@yield('title')</title>
 <link rel="canonical" href="https://www.creative-tim.com/product/material-kit" />
 
-<meta name="keywords"
-    content="bootstrap, bootstrap 5, bootstrap5, ui kit, design system, responsive design, web design ui, ui design system, material ui kit, material design system">
-<meta name="description"
-    content="Most complex and innovative UI Kit Made by Creative Tim. Check our latest Freebie Bootstrap 5 UI Kit.">
-
-<meta name="twitter:card" content="product">
-<meta name="twitter:site" content="@creativetim">
-<meta name="twitter:title" content="Material Kit 2 by Creative Tim">
-<meta name="twitter:description"
-    content="Most complex and innovative UI Kit Made by Creative Tim. Check our latest Freebie Bootstrap 5 UI Kit.">
-<meta name="twitter:creator" content="@creativetim">
-<meta name="twitter:image"
-    content="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-kit/material-kit.jpg">
-
-<meta property="fb:app_id" content="655968634437471">
-<meta property="og:title" content="Material Kit 2 by Creative Tim" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://demos.creative-tim.com/material-kit/index" />
-<meta property="og:image"
-    content="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/material-kit/material-kit.jpg" />
-<meta property="og:description"
-    content="Most complex and innovative UI Kit Made by Creative Tim. Check our latest Freebie Bootstrap 5 UI Kit." />
-<meta property="og:site_name" content="Creative Tim" />
-
 <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
 <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 
-<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/51a531941f.js" crossorigin="anonymous"></script>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 

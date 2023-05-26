@@ -64,8 +64,9 @@
                                         </small>
                                         <small class="mb-0 d-block">
                                             IDR {{ $product->price }} / day
-                                            <a href="/" class="fw-bold fs-5 mx-3" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" data-bs-title="Detail Product">→
+                                            <a href="/products/{{ $product->id }}" class="fw-bold fs-5 mx-3"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="Detail Product">→
                                             </a>
                                         </small>
                                     </div>

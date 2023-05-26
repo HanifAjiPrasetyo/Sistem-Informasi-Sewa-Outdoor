@@ -11,15 +11,6 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    public function scopeFilter($query, array $filters)
-    {
-        $query->when($filters['category'] ?? false, function ($query, $category) {
-            return $query->whereHas('category', function ($query) use ($category) {
-                $query->where('name', $category);
-            });
-        });
-    }
-
     public function category()
     {
         return $this->belongsTo(ProductCategory::class);

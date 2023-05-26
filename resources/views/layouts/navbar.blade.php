@@ -100,26 +100,6 @@
                 </li>
             </ul>
             <ul class="navbar-nav navbar-nav-hover ms-auto">
-<<<<<<< HEAD
-                <li class="nav-item mx-2">
-                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/login">
-                        <i class="material-icons opacity-6 me-2 text-md">login</i>
-                        Sign In
-                    </a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/register">
-                        <i class="material-icons opacity-6 me-2 text-md">how_to_reg</i>
-                        Sign Up
-                    </a>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/user/cart">
-                        <i class="material-icons opacity-6 me-2 text-md">shopping_cart</i>
-                        Cart
-                    </a>
-                </li>
-=======
                 @auth
                     @if (auth()->user()->username != 'admin')
                         <li class="nav-item mx-1">
@@ -250,7 +230,6 @@
                         </a>
                     </li>
                 @endauth
->>>>>>> hanif
             </ul>
         </div>
     </div>

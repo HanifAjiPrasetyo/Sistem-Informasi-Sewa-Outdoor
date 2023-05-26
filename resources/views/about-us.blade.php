@@ -20,16 +20,12 @@
 @section('container')
     <div class="container shadow-lg rounded bg-gray-700">
         <div class="p-3">
-            <div class="row">
-                <div class="col-md-6 text-start mb-4 mt-2">
-                    <h3 class="text-light fw-bold z-index-1 position-relative">
-                        Header
-                    </h3>
-                </div>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
-                    <div class="h4 text-light fw-bold">ISI ABOUT US</div>
+                    <div class="h4 text-light fw-bold">
+                        <p>Malang Camp merupakan toko penyewaan alat-alat outdoor, berbasis di Malang.</p>
+                        <p>Moto kami "Tidak Akan Meragukan Pelanggan, Meskipun Permintaannya Aneh-Aneh"</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-lg-8 col-md-6 col-12 my-auto">
                                 <div class="card-body ps-lg-3">
-                                    <h6 class="mb-0">Camping Tent</h6>
+                                    <h6 class="mb-0">{{ $ }}</h6>
                                     <small class="text-info fw-bold">
                                         Tent
                                     </small>

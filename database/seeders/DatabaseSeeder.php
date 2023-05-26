@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\ProductCategory;
 use App\Models\User;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,15 @@ class DatabaseSeeder extends Seeder
         ProductCategory::create([
             'name' => 'Other Equipment',
             'slug' => 'other-equipment',
+        ]);
+
+        Product::create([
+            'name' => 'Test',
+            'image' => '',
+            'description' => 'Test',
+            'price' => 1,
+            'stock' => 1,
+            'category_id' => 2
         ]);
     }
 }

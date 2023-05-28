@@ -58,7 +58,7 @@
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <img src="{{ asset('storage/' . $row->attributes->image) }}"
-                                                class="img-fluid rounded-3" alt="Item Image">
+                                                class="img-fluid rounded" alt="Item Image">
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <p class="h6 text-dark fw-bold my-0">{{ $row->name }}</p>
@@ -66,7 +66,8 @@
                                                 <span class="text-muted">{{ $row->attributes->category }}</span>
                                             </p>
                                         </div>
-                                        <div class="col-md-3 col-lg-3 col-xl-3 d-flex align-items-center m-auto">
+                                        <div
+                                            class="col-md-3 col-lg-3 col-xl-3 d-flex align-items-center m-auto text-xs fw-bold">
                                             <button class="btn btn-link px-3 my-auto"
                                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                 <i class="fas fa-minus"></i>
@@ -74,7 +75,7 @@
                                             <form action="/user/cart/update" method="post" class="p-0">
                                                 @csrf
                                                 <input id="quantity" name="quantity" value="{{ $row->quantity }}"
-                                                    type="number" class="rounded text-center" style="width:40%" />
+                                                    type="number" class="rounded text-center fw-bold" style="width:35%" />
 
                                                 <input name="item_id" value="{{ $row->id }}" type="hidden" />
 
@@ -83,12 +84,12 @@
                                                     <i class="fas fa-plus text-info"></i>
                                                 </button>
                                         </div>
-                                        <div class="col-md-3 col-lg-3 col-xl-3 my-auto text-center">
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
                                             <div class="mb-0 small fw-bold text-dark" id="subtotal">
                                                 Rp{{ number_format($row->attributes->subtotal, 2, ',', '.') }}
                                             </div>
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2 text-center">
+                                        <div class="col-md-2 col-lg-2 col-xl-2 text-end">
                                             <button type="submit" class="border-0 bg-transparent"
                                                 onclick="return confirm('Update Item?')">
                                                 <i class="fa-solid fa-pen-to-square fa-lg" style="color:rgb(47, 202, 207)">

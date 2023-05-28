@@ -18,31 +18,91 @@
 @endsection
 
 @section('container')
+    @if (session()->has('success'))
+        <div class="alert alert-info alert-dismissible fade show w-25 ms-auto me-auto text-light fw-bold" role="alert">
+            <span class="alert-icon"><i class="fa-solid fa-thumbs-up mx-2"></i></span>
+            <span class="alert-text">{{ session('success') }}</span>
+            <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+            <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
+            <span class="alert-text">{{ session('error') }}</span>
+            <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <div class="container-fluid">
         <a href="/products" class="col-lg-2 fw-bold text-dark ms-3">
             <i class="fa-solid fa-arrow-left"></i> Back to products
         </a><br><br>
         <div class="row justify-content-center">
-            <div class="col-lg-11 text-center align-items-center">
+            <div class="col-lg-12 text-center align-items-center">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
                     width="400" style="max-height: 400px">
                 <div class="h5 mt-2">{{ $product->name }}</div>
                 <div class="small mt-2 fw-bold">
                     Price : IDR {{ $product->price }} / day | Stock : {{ $product->stock }}
                 </div>
-                <center>
-                    <div class="mt-4 fw-bold text-dark mx-5 bg-gradient-faded-light rounded" style="text-align:justify">
-                        <div class="p-4">
-                            {!! $product->description !!}
+                <hr class="hr bg-dark w-75 m-auto mt-2">
+                <div class="col-9 mt-4 m-auto">
+                    <div class="lead text-start fw-bold text-dark mb-2">Desciption</div>
+                    <div class="fw-normal text-dark" style="text-align:justify">
+                        {!! $product->description !!}
+                    </div>
+                </div>
+
+                <div class="mt-4 me-4 text-dark fw-bold">
+                    <button type="button" class="btn bg-gradient-success btn-block" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalSignUp">
+                        Rent
+                    </button>
+                </div>
+
+                <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="card card-plain">
+                                    <a type="button" class="fs-5 text-dark fw-bold text-end me-4 mt-3"
+                                        data-bs-dismiss="modal">X</a>
+                                    <div class="card-header pb-0 text-left">
+                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
+                                            alt="Item Image" width="250">
+                                        <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
+                                    </div>
+                                    <div class="card-body pb-2">
+                                        <form role="form" action="/user/cart/add" method="post">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <label class="fw-bold" for="quantity">Quantity :</label>
+                                            <div class="input-group mb-3 w-50 m-auto">
+                                                <input type="number" class="form-control rounded border text-center"
+                                                    min="1" name="quantity" id="quantity" required>
+                                            </div>
+                                            <button type="submit" onclick="return confirm('Add to your cart?')"
+                                                class="btn bg-gradient-success btn-sm rounded w-75 mt-3 mb-2">
+                                                Add to Cart
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </center>
-                @if (auth()->user()->username !== 'admin')
-                    <div class="mt-4 me-4 text-dark fw-bold">
-                        <button class="btn btn-success" onclick="return confirm('Add to cart?')">Add to Cart</button>
-                    </div>
-                @endif
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
 @endsection

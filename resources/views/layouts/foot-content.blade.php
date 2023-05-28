@@ -106,3 +106,19 @@
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
+
+<script>
+    function updateSubtotal() {
+        var quantityInput = document.getElementById('quantity');
+        var quantity = parseInt(quantityInput.value());
+
+        var priceField = document.getElementById('price');
+        var price = parseInt(priceField.textContent);
+
+        var subtotal = quantity * price;
+
+        var subtotalElement = document.getElementById('subtotal');
+
+        subtotalElement.textContent = subtotal;
+    }
+</script>

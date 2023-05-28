@@ -48,6 +48,19 @@
                     <br><br>
                 @endif
 
+                @if (session()->has('message'))
+                    <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2 mx-2"></i></span>
+                        <span class="alert-text">{{ session('message') }}</span>
+                        <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
                 @if (session()->has('loginError'))
                     <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light"
                         role="alert">

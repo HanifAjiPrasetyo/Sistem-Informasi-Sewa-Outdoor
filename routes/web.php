@@ -9,7 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,13 @@ Route::prefix('dashboard')->group(function () {
 });
 
 // User Routes
-Route::get('/user/cart', fn () => view('user.cart'));
+Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/add', [CartController::class, 'addItem']);
+    Route::post('/cart/update', [CartController::class, 'updateItem']);
+    Route::get('/cart/delete', [CartController::class, 'deleteItem']);
+    Route::get('/cart/clear', [CartController::class, 'clearCart']);
+});
 
 //Register Routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -62,7 +68,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-// Reset Password
+// Reset & Change Password
 Route::get('/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('guest')->name('password.request');
 Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('guest')->name('password.email');
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');

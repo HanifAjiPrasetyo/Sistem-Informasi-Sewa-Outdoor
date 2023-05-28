@@ -3,7 +3,7 @@
 
 <head>
     @section('title')
-        Enter New Password
+        Change Password
     @endsection
     @include('dashboard.layouts.head-content')
 </head>
@@ -34,14 +34,13 @@
             <span class="mask bg-gradient-dark opacity-6"></span>
 
             <div class="container my-auto">
-
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                 <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
-                                        Reset Password
+                                        Change Password
                                     </h4>
                                     <div class="small text-center text-dark">Enter your registered email</div>
                                 </div>
@@ -50,7 +49,7 @@
                                 <form role="form" class="text-start" method="post"
                                     action="{{ route('password.post') }}">
                                     @csrf
-                                    <div class="input-group input-group-outline my-3 py-2">
+                                    <div class="input-group input-group-outline">
                                         <input type="hidden" class="form-control" id="token" name="token"
                                             value="{{ $token }}" />
                                     </div>

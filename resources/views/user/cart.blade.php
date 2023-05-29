@@ -51,6 +51,10 @@
             <div class="col-lg-9">
                 <div class="bg-gray-600 shadow rounded mb-4 p-4">
 
+                    @if ($carts->count() == 0)
+                        <div class="h3 text-light text-center">Your Cart is Empty</div>
+                    @endif
+
                     @foreach ($carts as $row)
                         <div class="col-lg-11 m-auto">
                             <div class="card rounded mb-3 bg-gray-400">

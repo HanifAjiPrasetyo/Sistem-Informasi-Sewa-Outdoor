@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Cart as Carts;
 use App\Models\Cart;
-use App\Models\User;
 use App\Models\Product;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,11 +11,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $userId = auth()->user()->id;
-        $items = Carts::session($userId)->getContent();
-
-        $carts = Cart::all();
-        $total = Carts::session($userId)->getTotal();
+        $carts = Cart::all()->where('user_id', auth()->user()->id);
 
         return view('user.cart', [
             'carts' => $carts
@@ -27,31 +20,17 @@ class CartController extends Controller
 
     public function addItem(Request $request)
     {
-        $product = Product::find($request->product_id);
-        $userId = auth()->user()->id;
-        $itemId = Str::random(5);
+        $productId = $request->product_id;
+        $product = Product::find($productId);
 
         if (auth()->user()->username !== 'admin') {
-            $data = ([
-                'id' => $itemId,
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => $request->quantity,
-                'attributes' => [
-                    'subtotal' => $product->price * $request->quantity,
-                    'image' => $product->image,
-                    'category' => $product->category->name,
-                ]
-            ]);
-
-            Carts::session($userId)->add($data);
 
             Cart::create([
-                'user_id' => $userId,
+                'user_id' => auth()->user()->id,
                 'product_id' => $request->product_id,
-                'quantity' => $data['quantity'],
-                'subtotal' => $data['attributes']['subtotal'],
-                'total' => Carts::session($userId)->getTotal()
+                'quantity' => $request->quantity,
+                'subtotal' => $request->quantity * $product->price,
+                'total' => 0
             ]);
 
             return redirect()->back()->with('success', 'Added to Cart!');
@@ -87,8 +66,7 @@ class CartController extends Controller
 
     public function clearCart()
     {
-        $userId = auth()->user()->id;
-        Carts::session($userId)->clear();
+
         DB::table('carts')->delete();
 
         return redirect()->back()->with('success', "Cart cleared!");

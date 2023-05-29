@@ -33,7 +33,7 @@
 
         <div class="col-lg-6 mb-3">
             <div class="fw-bold h5 text-start">
-                Total Item : {{ $total_item }}
+                Total Item : {{ $carts->count() }}
             </div>
         </div>
 
@@ -51,50 +51,51 @@
             <div class="col-lg-9">
                 <div class="bg-gray-600 shadow rounded mb-4 p-4">
 
-                    @foreach ($items as $row)
+                    @foreach ($carts as $row)
                         <div class="col-lg-11 m-auto">
                             <div class="card rounded mb-3 bg-gray-400">
                                 <div class="card-body p-3">
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="{{ asset('storage/' . $row->attributes->image) }}"
+                                            <img src="{{ asset('storage/' . $row->product->image) }}"
                                                 class="img-fluid rounded" alt="Item Image">
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <p class="h6 text-dark fw-bold my-0">{{ $row->name }}</p>
+                                            <p class="h6 text-dark fw-bold my-0">{{ $row->product->name }}</p>
                                             <p class="small text-xs fw-bold">
-                                                <span class="text-muted">{{ $row->attributes->category }}</span>
+                                                <span class="text-muted">{{ $row->product->category->name }}</span>
                                             </p>
                                         </div>
                                         <div
                                             class="col-md-3 col-lg-3 col-xl-3 d-flex align-items-center m-auto text-xs fw-bold">
-                                            <button class="btn btn-link px-3 my-auto"
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
                                             <form action="/user/cart/update" method="post" class="p-0">
                                                 @csrf
-                                                <input id="quantity" name="quantity" value="{{ $row->quantity }}"
-                                                    type="number" class="rounded text-center fw-bold" style="width:35%" />
+                                                <button type="submit" class="btn btn-link px-2 my-auto"
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
 
+                                                <input id="quantity" name="quantity" value="{{ $row->quantity }}"
+                                                    type="number" class="rounded text-center fw-bold" style="width:30%" />
                                                 <input name="item_id" value="{{ $row->id }}" type="hidden" />
 
-                                                <button type="button" class="btn btn-link px-1 my-auto"
+
+                                                <button type="submit" class="btn btn-link px-2 my-auto"
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                     <i class="fas fa-plus text-info"></i>
                                                 </button>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <div class="mb-0 small fw-bold text-dark" id="subtotal">
-                                                Rp{{ number_format($row->attributes->subtotal, 2, ',', '.') }}
+                                                Rp{{ number_format($row->subtotal, 2, ',', '.') }}
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                                            <button type="submit" class="border-0 bg-transparent"
+                                            {{-- <button type="submit" class="border-0 bg-transparent"
                                                 onclick="return confirm('Update Item?')">
                                                 <i class="fa-solid fa-pen-to-square fa-lg" style="color:rgb(47, 202, 207)">
                                                 </i>
-                                            </button>
+                                            </button> --}}
                                             </form>
                                             <a href="/user/cart/delete?id={{ $row->id }}"
                                                 class="border-0 bg-transparent" style="color:rgb(189, 24, 24)">
@@ -109,10 +110,10 @@
                         </div>
                     @endforeach
 
-                    @if ($total_item !== 0)
+                    @if ($carts->count() !== 0)
                         <div class="col-lg-4 ms-auto pb-2 shadow-lg p-4 rounded">
                             <div class="h6 fw-bold text-light text-center">
-                                Total : Rp{{ number_format($total, 2, ',', '.') }}
+                                Total : Rp{{ number_format($row->sum('subtotal'), 2, ',', '.') }}
                             </div>
                         </div>
                     @endif

@@ -110,15 +110,18 @@
 <script>
     function updateSubtotal() {
         var quantityInput = document.getElementById('quantity');
-        var quantity = parseInt(quantityInput.value());
+        var quantity = parseInt(quantityInput.value);
 
         var priceField = document.getElementById('price');
-        var price = parseInt(priceField.textContent);
+        var price = parseInt(priceField.value);
 
         var subtotal = quantity * price;
 
         var subtotalElement = document.getElementById('subtotal');
 
-        subtotalElement.textContent = subtotal;
+        subtotalElement.innerHTML = subtotal.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'IDR'
+        });
     }
 </script>

@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Cart;
+use Cart as Carts;
+use App\Models\Cart;
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     public function index()
     {
         $userId = auth()->user()->id;
-        $items = Cart::session($userId)->getContent();
-        $total = Cart::session($userId)->getTotal();
-        $count = $items->count();
+        $items = Carts::session($userId)->getContent();
+
+        $carts = Cart::all();
+        $total = Carts::session($userId)->getTotal();
 
         return view('user.cart', [
-            'items' => $items,
-            'total_item' => $count,
-            'total' => $total,
+            'carts' => $carts
         ]);
-
-        // dd($items);
     }
 
     public function addItem(Request $request)
@@ -44,19 +44,15 @@ class CartController extends Controller
                 ]
             ]);
 
-            // // Check Similar Item
-            // $items = Cart::session($userId)->getContent();
+            Carts::session($userId)->add($data);
 
-            // foreach ($items as $item) {
-            //     if ($data['name'] === $item['name']) {
-            //         Cart::session($userId)->update($item['id'], [
-            //             'quantity' => $data['quantity'] + $item['quantity'],
-            //         ]);
-            //     } else {
-            //     }
-            // }
-
-            Cart::session($userId)->add($data);
+            Cart::create([
+                'user_id' => $userId,
+                'product_id' => $request->product_id,
+                'quantity' => $data['quantity'],
+                'subtotal' => $data['attributes']['subtotal'],
+                'total' => Carts::session($userId)->getTotal()
+            ]);
 
             return redirect()->back()->with('success', 'Added to Cart!');
         } else {
@@ -66,40 +62,34 @@ class CartController extends Controller
 
     public function deleteItem(Request $request)
     {
-        $userId = auth()->user()->id;
+
         $id = $request->id;
 
-        Cart::session($userId)->remove($id);
+        Cart::destroy($id);
+
         return redirect()->back()->with('success', "Item deleted!");
     }
 
     public function updateItem(Request $request)
     {
-        $userId = auth()->user()->id;
         $itemId = $request->item_id;
-        $item = Cart::session($userId)->get($itemId);
+        $item = Cart::find($itemId);
 
         $data = ([
-            'quantity' => [
-                'relative' => false,
-                'value' => $request->quantity
-            ],
-            'attributes' => [
-                'subtotal' => $item['price'] * $request->quantity,
-                'image' => $item->attributes->image,
-                'category' => $item->attributes->category
-            ]
+            'quantity' => $request->quantity,
+            'subtotal' => $request->quantity * $item->product->price
         ]);
 
-        Cart::session($userId)->update($itemId, $data);
+        Cart::where('id', $itemId)->update($data);
 
-        return back()->with('success', 'Item updated!');
+        return back();
     }
 
     public function clearCart()
     {
         $userId = auth()->user()->id;
-        Cart::session($userId)->clear();
+        Carts::session($userId)->clear();
+        DB::table('carts')->delete();
 
         return redirect()->back()->with('success', "Cart cleared!");
     }

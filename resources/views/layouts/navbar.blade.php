@@ -99,17 +99,18 @@
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav navbar-nav-hover ms-auto">
+
+            <ul class="navbar-nav navbar-nav-hover ms-auto me-3">
                 @auth
                     @if (auth()->user()->username != 'admin')
-                        <li class="nav-item mx-1">
+                        <li class="nav-item">
                             <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/user/cart">
                                 <i class="material-icons opacity-9 me-2 text-md">shopping_cart</i>
                                 Cart
                             </a>
                         </li>
                     @endif
-                    <li class="nav-item dropdown dropdown-hover mx-1">
+                    <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link ps-2 d-flex pt-1 cursor-pointer" id="dropdownMenuDocs" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="d-flex align-items-center">

@@ -60,7 +60,7 @@
         <div class="row d-flex justify-content-center align-items-center">
 
             <div class="col-lg-9">
-                <div class="bg-gray-600 shadow rounded mb-4 p-4">
+                <div class="bg-gradient-success shadow rounded mb-4 p-4">
 
                     @if ($carts->count() == 0)
                         <div class="h3 text-light text-center">Your Cart is Empty</div>

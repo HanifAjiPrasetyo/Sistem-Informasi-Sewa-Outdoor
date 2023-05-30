@@ -18,7 +18,20 @@
 @endsection
 
 @section('container')
-    <div class="container shadow-lg rounded bg-gray-700">
+    <div class="col-lg-4 m-auto mb-4 text-center">
+        <form action="/products">
+            <div class="input-group input-group-dynamic is-valid shadow-lg ps-2 rounded bg-gray-200 text-dark">
+                <label class="form-label" for="search">Search</label>
+                <input type="search" class="form-control pe-3" name="search" id="search"
+                    value="{{ request('search') }}">
+                <button class="btn my-auto my-auto bg-success" type="submit" data-bs-toggle="tooltip"
+                    data-bs-title="Search" data-bs-placement="right">
+                    <i class="fa-solid fa-search fa-lg fw-bold text-light"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="container shadow-lg rounded bg-gradient-success">
         <div class="p-4">
             <div class="row">
                 <div class="col-md-6 text-start mb-4 mt-2">
@@ -79,11 +92,11 @@
                     </div>
                 @endforeach
 
-                @if (!request('category'))
-                    <div class="justify-content-center pagination pagination-dark text-dark fw-bold">
-                        {{ $products->links() }}
-                    </div>
-                @endif
+
+                <div class="justify-content-center pagination pagination-dark text-dark fw-bold">
+                    {{ $products->links() }}
+                </div>
+
 
             </div>
         </div>

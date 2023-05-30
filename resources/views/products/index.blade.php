@@ -26,7 +26,9 @@
                         @if (request('category'))
                             <div class="text-capitalize">
                                 @foreach ($products as $product)
-                                    {{ $product->category->name }}
+                                    @if ($loop->first)
+                                        {{ $product->category->name }}
+                                    @endif
                                 @endforeach
                             </div>
                         @else
@@ -38,20 +40,21 @@
             <div class="row justify-content-center">
                 @foreach ($products as $product)
                     <div class="col-md-5 mb-4">
-                        <div class="card card-profile">
+                        <div class="card bg-gray-300 card-profile">
                             <div class="row justify-content-center">
                                 <div class="col-lg-4 col-md-6 col-12 mt-n4">
                                     <div class="p-3 pe-md-0">
                                         @if ($product->image)
                                             <div class="col-lg-10">
                                                 <img class="border-radius-md shadow-lg img-fluid"
-                                                    src="{{ asset('storage/' . $product->image) }}" alt="image" />
+                                                    src="{{ asset('storage/' . $product->image) }}" alt="image"
+                                                    style="height:120px; width:200px" />
                                             </div>
                                         @else
                                             <div class="col-lg-10">
                                                 <img class="border-radius-md shadow-lg img-fluid"
                                                     src="https://source.unsplash.com/300x300?camp" alt="image"
-                                                    width="300" />
+                                                    style="height:120px; width:200px" />
                                             </div>
                                         @endif
                                     </div>
@@ -63,7 +66,7 @@
                                             {{ $product->category->name }}
                                         </small>
                                         <small class="mb-0 d-block">
-                                            IDR {{ $product->price }} / day
+                                            Rp{{ number_format($product->price, 2, ',', '.') }} / day
                                             <a href="/products/{{ $product->id }}" class="fw-bold fs-5 mx-3"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 data-bs-title="Detail Product">→
@@ -75,6 +78,13 @@
                         </div>
                     </div>
                 @endforeach
+
+                @if (!request('category'))
+                    <div class="justify-content-center pagination pagination-dark text-dark fw-bold">
+                        {{ $products->links() }}
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>

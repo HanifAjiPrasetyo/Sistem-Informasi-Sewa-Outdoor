@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('product_id');
             $table->integer('quantity');
             $table->bigInteger('subtotal');
-            $table->bigInteger('total')->nullable();
             $table->timestamps();
         });
     }

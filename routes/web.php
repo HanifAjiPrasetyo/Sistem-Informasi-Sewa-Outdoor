@@ -11,17 +11,6 @@ use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CartController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 // Home Routes
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index']);
@@ -50,7 +39,7 @@ Route::prefix('dashboard')->group(function () {
     });
 });
 
-// User Routes
+// User Cart Routes
 Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
     Route::get('/cart', [CartController::class, 'index']);
     Route::post('/cart/add', [CartController::class, 'addItem']);

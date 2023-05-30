@@ -31,6 +31,17 @@
             </div>
         @endif
 
+        @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+                <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
+                <span class="alert-text text-light">{{ session('error') }}</span>
+                <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                    aria-label="Close">
+                    <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <div class="col-lg-6 mb-3">
             <div class="fw-bold h5 text-start">
                 Total Item : {{ $carts->count() }}
@@ -62,7 +73,8 @@
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <img src="{{ asset('storage/' . $row->product->image) }}"
-                                                class="img-fluid rounded" alt="Item Image">
+                                                class="img-fluid rounded" alt="Item Image"
+                                                style="height:100px; width:200px">
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <p class="h6 text-dark fw-bold my-0">{{ $row->product->name }}</p>
@@ -88,6 +100,7 @@
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                     <i class="fas fa-plus text-info"></i>
                                                 </button>
+                                            </form>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <div class="mb-0 small fw-bold text-dark" id="subtotal">
@@ -95,12 +108,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                                            {{-- <button type="submit" class="border-0 bg-transparent"
-                                                onclick="return confirm('Update Item?')">
-                                                <i class="fa-solid fa-pen-to-square fa-lg" style="color:rgb(47, 202, 207)">
-                                                </i>
-                                            </button> --}}
-                                            </form>
                                             <a href="/user/cart/delete?id={{ $row->id }}"
                                                 class="border-0 bg-transparent" style="color:rgb(189, 24, 24)">
                                                 <i class="fas fa-circle-xmark fa-lg"
@@ -117,7 +124,7 @@
                     @if ($carts->count() !== 0)
                         <div class="col-lg-4 ms-auto pb-2 shadow-lg p-4 rounded">
                             <div class="h6 fw-bold text-light text-center">
-                                Total : Rp{{ number_format($row->sum('subtotal'), 2, ',', '.') }}
+                                Total : Rp{{ number_format($carts->sum('subtotal'), 2, ',', '.') }}
                             </div>
                         </div>
                     @endif

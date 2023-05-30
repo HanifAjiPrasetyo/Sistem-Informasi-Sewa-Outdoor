@@ -21,17 +21,31 @@ class CartController extends Controller
     public function addItem(Request $request)
     {
         $productId = $request->product_id;
+
         $product = Product::find($productId);
 
-        if (auth()->user()->username !== 'admin') {
+        $carts = Cart::where([
+            ['product_id', '=', $productId],
+            ['user_id', '=', auth()->user()->id],
+        ])->get();
+        $item = $carts->first();
 
-            Cart::create([
-                'user_id' => auth()->user()->id,
-                'product_id' => $request->product_id,
-                'quantity' => $request->quantity,
-                'subtotal' => $request->quantity * $product->price,
-                'total' => 0
-            ]);
+        if (auth()->user()->username !== 'admin') {
+            if ($item !== NULL) {
+                if ($item['product_id'] == $productId) {
+                    Cart::where('id', $item['id'])->update([
+                        'quantity' => $item['quantity'] + $request->quantity,
+                        'subtotal' => ($item['quantity'] + $request->quantity) * $product->price,
+                    ]);
+                }
+            } else {
+                Cart::create([
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $productId,
+                    'quantity' => $request->quantity,
+                    'subtotal' => $request->quantity * $product->price
+                ]);
+            }
 
             return redirect()->back()->with('success', 'Added to Cart!');
         } else {
@@ -66,9 +80,11 @@ class CartController extends Controller
 
     public function clearCart()
     {
-
-        DB::table('carts')->delete();
-
-        return redirect()->back()->with('success', "Cart cleared!");
+        if (Cart::where('user_id', auth()->user()->id)->count() !== 0) {
+            Cart::where('user_id', auth()->user()->id)->delete();
+            return redirect()->back()->with('success', "Cart cleared!");
+        } else {
+            return redirect()->back()->with('error', "Cart is empty!");
+        }
     }
 }

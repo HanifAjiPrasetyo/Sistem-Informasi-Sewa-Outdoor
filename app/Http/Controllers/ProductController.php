@@ -12,11 +12,11 @@ class ProductController extends Controller
     {
         if (request('category')) {
             return view('products.index', [
-                'products' => Product::all()->where('category_id', request('category'))
+                'products' => Product::all()->where('category_id', request('category')),
             ]);
         } else {
             return view('products.index', [
-                'products' => Product::all()
+                'products' => Product::latest()->paginate(4)
             ]);
         }
     }

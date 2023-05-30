@@ -87,8 +87,8 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">IDR
-                                                    {{ $product->price }}
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">Rp{{ number_format($product->price, 2, ',', '.') }}
                                                     / day</span>
                                             </td>
                                             <td class="align-middle text-center">

@@ -47,14 +47,14 @@
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center align-items-center">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
-                    width="400" style="max-height: 400px">
+                    style="height:270px; width:400px">>
                 <div class="h5 mt-2">{{ $product->name }}</div>
                 <div class="small mt-2 fw-bold">
                     Price : IDR {{ $product->price }} / day | Stock : {{ $product->stock }}
                 </div>
                 <hr class="hr bg-dark w-75 m-auto mt-2">
                 <div class="col-9 mt-4 m-auto">
-                    <div class="lead text-start fw-bold text-dark mb-2">Desciption</div>
+                    <div class="lead text-start fw-bold text-dark mb-2">Description</div>
                     <div class="fw-normal text-dark" style="text-align:justify">
                         {!! $product->description !!}
                     </div>
@@ -74,10 +74,10 @@
                             <div class="modal-body p-0">
                                 <div class="card card-plain">
                                     <a type="button" class="fs-5 text-dark fw-bold text-end me-4 mt-3"
-                                        data-bs-dismiss="modal">X</a>
+                                        data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></a>
                                     <div class="card-header pb-0 text-left">
                                         <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
-                                            alt="Item Image" width="250">
+                                            alt="Item Image" style="height:120px; width:200px">
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
                                     <div class="card-body pb-2">

@@ -294,4 +294,7 @@
     let productTable = new DataTable('#productTable', {
         responsive: true
     });
+    let memberTable = new DataTable('#memberTable', {
+        responsive: true
+    });
 </script>

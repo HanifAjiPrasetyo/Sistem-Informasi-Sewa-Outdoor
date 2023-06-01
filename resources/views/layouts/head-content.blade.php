@@ -1,5 +1,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 <title>@yield('title')</title>
 <link rel="canonical" href="https://www.creative-tim.com/product/material-kit" />
@@ -9,16 +10,20 @@
 
 <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
 <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-
 <script src="https://kit.fontawesome.com/51a531941f.js" crossorigin="anonymous"></script>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
-<link id="pagestyle" href="../assets/css/material-kit.min.css?v=3.0.4" rel="stylesheet" />
+<link id="pagestyle" href="/assets/css/material-kit.min.css?v=3.0.4" rel="stylesheet" />
 
 <style>
     .async-hide {
         opacity: 0 !important
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
     }
 </style>
 <script>
@@ -59,22 +64,4 @@
     ga('require', 'displayfeatures');
     ga('require', 'linker');
     ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
-</script>
-
-
-<script>
-    // (function(w, d, s, l, i) {
-    //     w[l] = w[l] || [];
-    //     w[l].push({
-    //         'gtm.start': new Date().getTime(),
-    //         event: 'gtm.js'
-    //     });
-    //     var f = d.getElementsByTagName(s)[0],
-    //         j = d.createElement(s),
-    //         dl = l != 'dataLayer' ? '&l=' + l : '';
-    //     j.async = true;
-    //     j.src =
-    //         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    //     f.parentNode.insertBefore(j, f);
-    // })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
 </script>

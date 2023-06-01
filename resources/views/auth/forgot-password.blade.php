@@ -3,7 +3,7 @@
 
 <head>
     @section('title')
-        Login
+        Reset Password
     @endsection
     @include('dashboard.layouts.head-content')
 </head>
@@ -35,19 +35,6 @@
 
             <div class="container my-auto">
 
-                @if (session()->has('success'))
-                    <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
-                        role="alert">
-                        <span class="alert-icon"><i class="ni ni-like-2 mx-2"></i></span>
-                        <span class="alert-text">{{ session('success') }}</span>
-                        <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
-                            aria-label="Close">
-                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
-                        </button>
-                    </div>
-                    <br><br>
-                @endif
-
                 @if (session()->has('message'))
                     <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
                         role="alert">
@@ -61,35 +48,20 @@
                     <br><br>
                 @endif
 
-                @if (session()->has('loginError'))
-                    <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light"
-                        role="alert">
-                        <div class="d-flex align-items-center">
-                            <span class="material-icons fs-4">
-                                report_problem
-                            </span>
-                            <span class="alert-text mx-2 pt-1 fs-5">{{ session('loginError') }}</span>
-                        </div>
-                        <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="alert"
-                            aria-label="Close">
-                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
-                        </button>
-                    </div>
-                    <br><br>
-                @endif
-
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                 <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
-                                        Sign in
+                                        Reset Password
                                     </h4>
+                                    <div class="small text-center text-dark">Enter your registered email</div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form role="form" class="text-start" method="post" action="/login">
+                                <form role="form" class="text-start" method="post"
+                                    action="{{ route('password.email') }}">
                                     @csrf
                                     <div class="input-group input-group-outline my-3 py-2">
                                         <label class="form-label" for="email">Email</label>
@@ -102,27 +74,11 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-3 py-2">
-                                        <label class="form-label" for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            required />
-                                    </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
-                                            Sign in
+                                        <button type="submit" class="btn btn-sm bg-gradient-success w-50">
+                                            Send Link
                                         </button>
                                     </div>
-                                    <p class="mt-4 text-sm text-center">
-                                        Don't have an account?
-                                        <a href="/register" class="text-success text-gradient font-weight-bold">Sign
-                                            up</a>
-                                    </p>
-                                    <p class="text-sm text-center">
-                                        Forgot password?
-                                        <a href="/forget-password"
-                                            class="text-info text-gradient font-weight-bold">Change
-                                            Password</a>
-                                    </p>
                                 </form>
                             </div>
                         </div>

@@ -10,15 +10,17 @@ class ProductController extends Controller
 {
     public function index()
     {
-        if (request('category')) {
-            return view('products.index', [
-                'products' => Product::all()->where('category_id', request('category'))
-            ]);
-        } else {
-            return view('products.index', [
-                'products' => Product::all()
-            ]);
+        $products = Product::latest();
+
+        if (request('search')) {
+            $products->where('name', 'like', '%' . request('search') . '%')->orWhere('description', 'like', '%' . request('search') . '%');
+        } else if (request('category')) {
+            $products->where('category_id', request('category'));
         }
+
+        return view('products.index', [
+            'products' => $products->paginate(4)
+        ]);
     }
 
     public function show(Product $product)

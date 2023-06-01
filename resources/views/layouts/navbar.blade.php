@@ -17,7 +17,7 @@
                 <li class="nav-item dropdown dropdown-hover mx-2">
                     <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons opacity-9 me-2 text-md">inventory_2</i>
+                        <i class="fa-solid fa-campground opacity-9 me-2"></i>
                         Products
                         <img src="/assets/img/down-arrow-white.svg" alt="down-arrow"
                             class="arrow ms-2 d-lg-block d-none">
@@ -32,6 +32,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products">
                                         <h6
                                             class="h5 dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                            <i class="fa-solid fa-campground opacity-9 mx-2"></i>
                                             All Products
                                         </h6>
                                     </a>
@@ -40,6 +41,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=1">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                            <i class="fa-solid fa-suitcase-rolling opacity-9 mx-2"></i>
                                             Backpack
                                         </h6>
                                     </a>
@@ -48,6 +50,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=2">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                            <i class="fa-solid fa-tent opacity-9 mx-2"></i>
                                             Tent
                                         </h6>
                                     </a>
@@ -56,6 +59,7 @@
                                     <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=3">
                                         <h6
                                             class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                            <i class="fa-solid fa-cube opacity-9 mx-2"></i>
                                             Other Equipment
                                         </h6>
                                     </a>
@@ -67,24 +71,28 @@
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products">
                                     <h6
                                         class="h5 dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                        <i class="fa-solid fa-campground opacity-9 mx-2"></i>
                                         All Products
                                     </h6>
                                 </a>
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=1">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                        <i class="fa-solid fa-suitcase-rolling opacity-9 mx-2"></i>
                                         Backpack
                                     </h6>
                                 </a>
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=2">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                        <i class="fa-solid fa-tent opacity-9 mx-2"></i>
                                         Tent
                                     </h6>
                                 </a>
                                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="/products?category=3">
                                     <h6
                                         class="dropdown-header text-dark font-weight-bolder d-flex justify-content-start align-items-center p-0">
+                                        <i class="fa-solid fa-cube opacity-9 mx-2"></i>
                                         Other Equipment
                                     </h6>
                                 </a>
@@ -94,7 +102,7 @@
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="/about-us">
-                        <i class="material-icons opacity-9 me-2 text-md">info</i>
+                        <i class="fa-solid fa-circle-info opacity-9 me-2 text-md"></i>
                         About Us
                     </a>
                 </li>

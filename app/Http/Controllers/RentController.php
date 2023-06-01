@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rent;
+use App\Models\User;
 use App\Http\Requests\StoreRentRequest;
 use App\Http\Requests\UpdateRentRequest;
 
@@ -13,7 +14,14 @@ class RentController extends Controller
      */
     public function index()
     {
-        //
+        $userId = auth()->user()->id;
+        $user = User::find($userId);
+
+        if ($user->address == NULL) {
+            return redirect('/user/profile')->with('warning', 'Add your address before continue!');
+        } else {
+            return view('user.rent.index');
+        }
     }
 
     /**

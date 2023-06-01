@@ -132,10 +132,10 @@
                 </div>
 
                 <center>
-                    <button type="button" class="btn btn-dark shadow">
+                    <a class="btn btn-dark shadow" href="/user/rent">
                         <i class="fa-solid fa-cash-register fa-lg text-success mx-1"></i>
                         Checkout
-                    </button>
+                    </a>
                 </center>
             </div>
 

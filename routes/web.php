@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\RentController;
 use App\Http\Controllers\UserProfileController;
 
 // Home Routes
@@ -51,6 +52,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
 
 // User Profile Routes
 Route::resource('/user/profile', UserProfileController::class)->middleware('auth');
+
+// User Rent Routes
+Route::get('/user/rent', [RentController::class, 'index'])->middleware('auth');
 
 //Register Routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');

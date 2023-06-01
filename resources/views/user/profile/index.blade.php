@@ -34,6 +34,17 @@
             </div>
         @endif
 
+        @if (session()->has('warning'))
+            <div class="alert alert-warning alert-dismissible fade show w-50 ms-auto me-auto text-light" role="alert">
+                <span class="alert-icon"><i class="fa-solid fa-exclamation mx-2 fs-5"></i></span>
+                <span class="alert-text">{{ session('warning') }}</span>
+                <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                    aria-label="Close">
+                    <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <div class="row justify-content-center bg-gradient-success rounded">
 
             <div class="col-lg-3 mb-3 mt-4 text-center">

@@ -16,9 +16,8 @@ class DashboardMemberController extends Controller
     {
         //
         return view('dashboard.members.index', [
-            'users' => User::all()
-        ]
-        );
+            'members' => User::all()->where('username', '<>', 'admin')
+        ]);
     }
 
     /**
@@ -66,6 +65,12 @@ class DashboardMemberController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+
+        if ($user->photo) {
+            Storage::delete($user->photo);
+        }
+
+        return redirect('/dashboard/members')->with('success', 'User has been deleted!');
     }
 }

@@ -33,11 +33,12 @@
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive px-4">
-                            <table class="table align-items-center mb-0" id="productTable">
+                            <table class="table align-items-center mb-2" id="memberTable">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Name
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Identity
                                         </th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -51,24 +52,28 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Address
                                         </th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($members as $member)
                                         <tr>
-                                            <td>
+                                            <td class="align-middle text-center">
                                                 <div class="d-flex px-2 py-1">
                                                     @if ($member->photo)
                                                         <div>
-                                                            <img src="{{ asset('storage/' . $product->photo) }}"
+                                                            <img src="{{ asset('storage/' . $member->photo) }}"
                                                                 class="avatar avatar-sm me-3 border-radius-lg"
-                                                                alt="product-image" />
+                                                                alt="Member Photo" />
                                                         </div>
                                                     @else
                                                         <div>
-                                                            <img src="{{ asset('storage/product-images/no-img.jpg') }}"
+                                                            <img src="{{ asset('storage/user-photos/no-photo.png') }}"
                                                                 class="avatar avatar-sm me-3 border-radius-lg"
-                                                                alt="product-image" />
+                                                                alt="Member Photo" />
                                                         </div>
                                                     @endif
                                                     <div class="d-flex flex-column justify-content-center">
@@ -79,31 +84,27 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $member->email }}</span>
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $member->username }}</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $member->address }}
-                                                </span>
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $member->email }}</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="/dashboard/members/{{ $product->id }}"
-                                                    class="text-secondary font-weight-bold text-xs mx-1"
-                                                    data-bs-toggle="tooltip" data-bs-title="Detail Product">
-                                                    Detail
-                                                </a> |
-                                                <a href="/dashboard/members/{{ $product->id }}/edit"
-                                                    class="text-secondary font-weight-bold text-xs mx-1"
-                                                    data-bs-toggle="tooltip" data-bs-title="Edit Product">
-                                                    Edit
-                                                </a> |
-                                                <form action="/dashboard/members/{{ $product->id }}" method="post"
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">{{ $member->address }}</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <form action="/dashboard/members/{{ $member->id }}" method="post"
                                                     class="d-inline">
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit"
                                                         class="border-0 text-secondary font-weight-bold text-xs bg-transparent"
-                                                        data-bs-toggle="tooltip" data-bs-title="Delete Product"
+                                                        data-bs-toggle="tooltip" data-bs-title="Delete Member"
                                                         onclick="return confirm('Do you want to delete?')">
+                                                        <i class="fa-solid fa-trash mx-1"></i>
                                                         Delete
                                                     </button>
                                                 </form>
@@ -113,9 +114,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{-- <div class="pagination pagination-sm pagination-dark d-flex justify-content-center mt-3">
-                            {{ $products->links() }}
-                        </div> --}}
                     </div>
                 </div>
             </div>

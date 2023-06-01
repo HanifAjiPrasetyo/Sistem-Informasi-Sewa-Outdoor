@@ -1,20 +1,17 @@
-<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
 
 <script src="../assets/js/plugins/countup.min.js"></script>
 
 <script src="../assets/js/plugins/parallax.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-</script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
-<script></script>
+<script src="/assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script>
     // get the element to animate
     var element = document.getElementById('count-stats');
@@ -111,20 +108,74 @@
 </script>
 
 <script>
-    function updateSubtotal() {
-        var quantityInput = document.getElementById('quantity');
-        var quantity = parseInt(quantityInput.value);
+    $(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+    });
 
-        var priceField = document.getElementById('price');
-        var price = parseInt(priceField.value);
+    $(function() {
 
-        var subtotal = quantity * price;
+        $('#province').on('change', function() {
+            let id_province = $('#province').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getRegency') }}",
+                data: {
+                    id_province: id_province
+                },
+                cache: false,
 
-        var subtotalElement = document.getElementById('subtotal');
-
-        subtotalElement.innerHTML = subtotal.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'IDR'
+                success: function(msg) {
+                    $('#regency').html(msg);
+                    $('#district').html('');
+                    $('#village').html('');
+                },
+                error: function(data) {
+                    console.log('error:', data);
+                }
+            })
         });
-    }
+
+        $('#regency').on('change', function() {
+            let id_regency = $('#regency').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getDistrict') }}",
+                data: {
+                    id_regency: id_regency
+                },
+                cache: false,
+
+                success: function(msg) {
+                    $('#district').html(msg);
+                },
+                error: function(data) {
+                    console.log('error:', data);
+                }
+            })
+        });
+
+        $('#district').on('change', function() {
+            let id_district = $('#district').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getVillage') }}",
+                data: {
+                    id_district: id_district
+                },
+                cache: false,
+
+                success: function(msg) {
+                    $('#village').html(msg);
+                },
+                error: function(data) {
+                    console.log('error:', data);
+                }
+            })
+        });
+
+    });
 </script>

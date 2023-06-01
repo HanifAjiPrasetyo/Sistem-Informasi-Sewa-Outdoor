@@ -21,9 +21,8 @@
     <div class="col-lg-4 m-auto mb-4 text-center">
         <form action="/products">
             <div class="input-group input-group-dynamic is-valid shadow-lg ps-2 rounded bg-gray-200 text-dark">
-                <label class="form-label" for="search">Search</label>
                 <input type="search" class="form-control pe-3" name="search" id="search"
-                    value="{{ request('search') }}">
+                    value="{{ request('search') }}" placeholder="Search..">
                 <button class="btn my-auto my-auto bg-success" type="submit" data-bs-toggle="tooltip"
                     data-bs-title="Search" data-bs-placement="right">
                     <i class="fa-solid fa-search fa-lg fw-bold text-light"></i>
@@ -58,22 +57,24 @@
                                 <div class="col-lg-4 col-md-6 col-12 mt-n4">
                                     <div class="p-3 pe-md-0">
                                         @if ($product->image)
-                                            <div class="col-lg-10">
-                                                <img class="border-radius-md shadow-lg img-fluid"
-                                                    src="{{ asset('storage/' . $product->image) }}" alt="image"
-                                                    style="height:120px; width:200px" />
-                                            </div>
+                                            <a href="/products/{{ $product->id }}">
+                                                <div class="col-lg-10">
+                                                    <img class="border-radius-md shadow-lg img-fluid"
+                                                        src="{{ asset('storage/' . $product->image) }}" alt="image"
+                                                        style="height:110px; width:200px" />
+                                                </div>
+                                            </a>
                                         @else
                                             <div class="col-lg-10">
                                                 <img class="border-radius-md shadow-lg img-fluid"
                                                     src="https://source.unsplash.com/300x300?camp" alt="image"
-                                                    style="height:120px; width:200px" />
+                                                    style="height:110px; width:200px" />
                                             </div>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-8 col-md-6 col-12 my-auto">
-                                    <div class="card-body ps-lg-3">
+                                <div class="col-lg-8 col-md-6 col-12 m-auto">
+                                    <div class="card-body ps-lg-2">
                                         <h6 class="mb-0">{{ $product->name }}</h6>
                                         <small class="text-info fw-bold">
                                             {{ $product->category->name }}

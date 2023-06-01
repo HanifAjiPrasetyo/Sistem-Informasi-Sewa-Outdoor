@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserProfileController;
 
 // Home Routes
 Route::get('/', [HomeController::class, 'index']);
@@ -48,6 +49,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
     Route::get('/cart/clear', [CartController::class, 'clearCart']);
 });
 
+// User Profile Routes
+Route::resource('/user/profile', UserProfileController::class)->middleware('auth');
+
 //Register Routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
@@ -62,3 +66,9 @@ Route::get('/forget-password', [ForgotPasswordController::class, 'showForgetPass
 Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('guest')->name('password.email');
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('guest')->name('password.post');
+
+
+Route::get('form', [HomeController::class, 'address']);
+Route::post('/getRegency', [HomeController::class, 'getRegency'])->name('getRegency');
+Route::post('/getDistrict', [HomeController::class, 'getDistrict'])->name('getDistrict');
+Route::post('/getVillage', [HomeController::class, 'getVillage'])->name('getVillage');

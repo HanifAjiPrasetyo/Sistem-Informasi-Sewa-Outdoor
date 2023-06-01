@@ -19,9 +19,9 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="material-icons opacity-9 me-2 text-md">inventory_2</i>
                         Products
-                        <img src="../assets/img/down-arrow-white.svg" alt="down-arrow"
+                        <img src="/assets/img/down-arrow-white.svg" alt="down-arrow"
                             class="arrow ms-2 d-lg-block d-none">
-                        <img src="../assets/img/down-arrow-dark.svg" alt="down-arrow"
+                        <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow"
                             class="arrow ms-2 d-lg-none d-block">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg"
@@ -116,10 +116,10 @@
                             <div class="d-flex align-items-center">
                                 @if (auth()->user()->photo)
                                     <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="User Photo"
-                                        class="rounded-circle mx-2 img-fluid" width="30" height="30">
+                                        class="rounded-circle mx-2 img-fluid" style="width:25px; height:30px">
                                 @else
                                     <img src="{{ asset('storage/user-photos/no-photo.png') }}" alt="User Photo"
-                                        class="rounded-circle mx-2 img-fluid" width="30" height="30">
+                                        class="rounded-circle mx-2 img-fluid" style="width:25px; height:30px">
                                 @endif
                                 Hi, {{ auth()->user()->username }}
                                 <i class="material-icons opacity-9 mx-1 text-md">keyboard_arrow_down</i>
@@ -132,7 +132,7 @@
                                     @if (auth()->user()->username != 'admin')
                                         <li class="nav-item list-group-item border-0 p-0">
                                             <a class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-center"
-                                                href="/products">
+                                                href="/user/profile">
                                                 <i class="material-icons opacity-9 me-1 text-md">person</i>
                                                 <h6 class="dropdown-header text-dark font-weight-bolder p-0">
                                                     Profile
@@ -179,7 +179,7 @@
                                 <div class="col-md-12 g-0">
                                     @if (auth()->user()->username != 'admin')
                                         <a class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-center"
-                                            href="/products">
+                                            href="/user/profile">
                                             <i class="material-icons opacity-9 me-1 text-md">person</i>
                                             <h6 class="dropdown-header text-dark font-weight-bolder p-0">
                                                 Profile

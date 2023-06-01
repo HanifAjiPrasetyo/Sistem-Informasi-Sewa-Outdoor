@@ -13,7 +13,7 @@ class ProductController extends Controller
         $products = Product::latest();
 
         if (request('search')) {
-            $products->where('name', 'like', '%' . request('search') . '%');
+            $products->where('name', 'like', '%' . request('search') . '%')->orWhere('description', 'like', '%' . request('search') . '%');
         } else if (request('category')) {
             $products->where('category_id', request('category'));
         }

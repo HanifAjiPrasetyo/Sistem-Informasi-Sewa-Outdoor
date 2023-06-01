@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->id();
             $table->timestamps();
         });
     }

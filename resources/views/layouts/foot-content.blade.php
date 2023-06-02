@@ -179,3 +179,7 @@
 
     });
 </script>
+
+<script>
+    const pwInput = document.querySelector('#password');
+</script>

@@ -102,10 +102,20 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-3 py-2">
-                                        <label class="form-label" for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            required />
+                                    <div class="d-flex align-items-center">
+                                        <div class="input-group input-group-outline mb-3 pt-2" style="width:90%">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                required />
+                                        </div>
+                                        <button type="button" class="eye btn p-0 fs-6 mx-2" data-bs-toggle="tooltip"
+                                            data-bs-title="Show Password" onclick="showPW()">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="eye-slash btn p-0 fs-6 mx-2 d-none"
+                                            data-bs-toggle="tooltip" data-bs-title="Hide Password" onclick="hidePW()">
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                        </button>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
@@ -121,7 +131,8 @@
                                         Forgot password?
                                         <a href="/forget-password"
                                             class="text-info text-gradient font-weight-bold">Change
-                                            Password</a>
+                                            Password
+                                        </a>
                                     </p>
                                 </form>
                             </div>
@@ -132,6 +143,27 @@
         </div>
     </main>
     @include('dashboard.layouts.foot-content')
+    <script>
+        function showPW() {
+            const inputPW = document.querySelector('#password');
+            const eye = document.querySelector('.eye');
+            const eyeSlash = document.querySelector('.eye-slash');
+
+            inputPW.type = 'text';
+            eye.classList.add('d-none');
+            eyeSlash.classList.remove('d-none');
+        }
+
+        function hidePW() {
+            const inputPW = document.querySelector('#password');
+            const eye = document.querySelector('.eye');
+            const eyeSlash = document.querySelector('.eye-slash');
+
+            inputPW.type = 'password';
+            eyeSlash.classList.add('d-none');
+            eye.classList.remove('d-none');
+        }
+    </script>
 </body>
 
 </html>

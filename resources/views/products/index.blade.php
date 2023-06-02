@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Products
+    MalangCamp | Products
 @endsection
 
 @section('header')

@@ -39,7 +39,7 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign Up
                                     </h4>
-                                    <p class="mb-0">
+                                    <p class="mb-0 text-dark small fw-bold">
                                         Fill the fields to register
                                     </p>
                                 </div>

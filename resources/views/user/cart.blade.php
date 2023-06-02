@@ -50,8 +50,12 @@
 
         <div class="col-lg-7 ms-auto text-end">
             <div class="fw-bold mb-4 me-5">
+                <a href="/products" class="btn btn-sm btn-dark mx-2">
+                    <i class="fa-solid fa-tent fs-6 mx-1" style="color:rgb(109, 231, 221)"></i>
+                    Add Item
+                </a>
                 <a href="/user/cart/clear" class="btn btn-sm btn-dark" onclick="return confirm('Clear Cart?')">
-                    <i class="fa-solid fa-trash fs-6 mx-1 fa-lg" style="color:rgb(209, 59, 59)"></i>
+                    <i class="fa-solid fa-trash fs-6 mx-1" style="color:rgb(247, 81, 81)"></i>
                     Clear Cart
                 </a>
             </div>

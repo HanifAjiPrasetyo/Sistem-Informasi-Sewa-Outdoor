@@ -77,7 +77,7 @@
                     </div>
                     <br><br>
                 @endif
-
+                <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
@@ -86,6 +86,9 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign in
                                     </h4>
+                                    <p class="mb-0 text-center text-dark small fw-bold">
+                                        Enter your registered account
+                                    </p>
                                 </div>
                             </div>
                             <div class="card-body">

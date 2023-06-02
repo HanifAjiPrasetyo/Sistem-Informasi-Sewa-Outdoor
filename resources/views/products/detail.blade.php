@@ -61,14 +61,20 @@
                 </div>
 
                 <div class="mt-4 me-4 text-dark fw-bold">
-                    <button type="button" class="btn bg-gradient-success btn-block" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalSignUp">
-                        Rent
+                    {{-- <button type="button" class="btn bg-gradient-success btn-block mx-2" data-bs-toggle="modal"
+                        data-bs-target="#rentModal">
+                        <i class="fa-solid fa-cash-register mx-1"></i>
+                        Rent Now
+                    </button> --}}
+                    <button type="button" class="btn bg-gradient-info btn-block" data-bs-toggle="modal"
+                        data-bs-target="#cartModal">
+                        <i class="fa-solid fa-cart-shopping mx-1"></i>
+                        Add to Cart
                     </button>
                 </div>
 
-                <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+                <div class="modal fade" id="rentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-body p-0">
@@ -81,7 +87,41 @@
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
                                     <div class="card-body pb-2">
-                                        <form role="form" action="/user/cart/add" method="post">
+                                        <form action="/user/rent" method="post">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                            <label class="fw-bold" for="quantity">Quantity :</label>
+                                            <div class="input-group mb-3 w-50 m-auto">
+                                                <input type="number" class="form-control rounded border text-center"
+                                                    min="1" name="quantity" id="quantity" required>
+                                            </div>
+                                            <button type="submit" onclick="return confirm('Rent now?')"
+                                                class="btn bg-gradient-success btn-sm rounded w-75 mt-3 mb-2">
+                                                Checkout
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="card card-plain">
+                                    <a type="button" class="fs-5 text-dark fw-bold text-end me-4 mt-3"
+                                        data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></a>
+                                    <div class="card-header pb-0 text-left">
+                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
+                                            alt="Item Image" style="height:120px; width:200px">
+                                        <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
+                                    </div>
+                                    <div class="card-body pb-2">
+                                        <form action="/user/cart/add" method="post">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <label class="fw-bold" for="quantity">Quantity :</label>

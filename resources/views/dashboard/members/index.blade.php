@@ -93,7 +93,7 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-bold">{{ $member->address }}</span>
+                                                    class="text-secondary text-xxs font-weight-bold">{{ $member->address }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <form action="/dashboard/members/{{ $member->id }}" method="post"

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardMemberController extends Controller
@@ -14,9 +13,8 @@ class DashboardMemberController extends Controller
      */
     public function index()
     {
-        //
         return view('dashboard.members.index', [
-            'members' => User::all()->where('username', '<>', 'admin')
+            'members' => User::where('username', '<>', 'admin')->get()
         ]);
     }
 
@@ -39,7 +37,7 @@ class DashboardMemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(string $id)
     {
         //
     }
@@ -47,7 +45,7 @@ class DashboardMemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(string $id)
     {
         //
     }
@@ -55,7 +53,7 @@ class DashboardMemberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -63,9 +61,11 @@ class DashboardMemberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(string $id)
     {
-        User::destroy($user->id);
+        $user = User::find($id);
+
+        User::destroy($id);
 
         if ($user->photo) {
             Storage::delete($user->photo);

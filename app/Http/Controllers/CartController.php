@@ -56,7 +56,7 @@ class CartController extends Controller
     public function deleteItem(Request $request)
     {
 
-        $id = $request->id;
+        $id = $request->cart_id;
 
         Cart::destroy($id);
 

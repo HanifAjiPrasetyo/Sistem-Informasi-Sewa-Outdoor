@@ -99,7 +99,6 @@
                                                     type="number" class="rounded text-center fw-bold" style="width:30%" />
                                                 <input name="item_id" value="{{ $row->id }}" type="hidden" />
 
-
                                                 <button type="submit" class="btn btn-link px-2 my-auto"
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                     <i class="fas fa-plus text-info"></i>
@@ -112,12 +111,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                                            <a href="/user/cart/delete?id={{ $row->id }}"
-                                                class="border-0 bg-transparent" style="color:rgb(189, 24, 24)">
-                                                <i class="fas fa-circle-xmark fa-lg"
+                                            <form action="/user/cart/delete" method="post">
+                                                @csrf
+                                                <input type="hidden" name="cart_id" value="{{ $row->id }}">
+                                                <button type="submit" class="btn btn-sm btn-dark text-xs"
                                                     onclick="return confirm('Delete item?')">
-                                                </i>
-                                            </a>
+                                                    <i class="fas fa-circle-xmark fs-6 ms-1 text-danger"></i> Delete
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

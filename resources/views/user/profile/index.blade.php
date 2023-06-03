@@ -59,19 +59,19 @@
             <div class="col-lg-6 text-light mt-4 px-3">
                 <div class="name mb-2">
                     <small class="fw-bold text-dark">Name</small>
-                    <div class="h5 text-light">{{ $user->name }}</div>
+                    <div class="h5 text-light fw-bold">{{ $user->name }}</div>
                 </div>
                 <div class="username mb-2">
                     <small class="text-dark fw-bold">Username</small>
-                    <div class="h6 text-light">{{ $user->username }}</div>
+                    <div class="h6 text-light fw-bold">{{ $user->username }}</div>
                 </div>
                 <div class="email mb-2">
                     <small class="text-dark fw-bold">Email</small>
-                    <div class="h6 text-light">{{ $user->email }}</div>
+                    <div class="h6 text-light fw-bold">{{ $user->email }}</div>
                 </div>
                 <div class="address mb-5">
                     <small class="text-dark fw-bold">Address</small>
-                    <div class="small text-uppercase">{{ $user->address }}</div>
+                    <div class="small fw-bold text-uppercase">{{ $user->address }}</div>
                 </div>
                 <div class="update text-end">
                     <a href="/user/profile/{{ $user->id }}/edit" class="btn btn-info text-light fw-bold">

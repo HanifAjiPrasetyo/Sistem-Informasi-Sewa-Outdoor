@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
     Route::get('/cart', [CartController::class, 'index']);
     Route::post('/cart/add', [CartController::class, 'addItem']);
     Route::post('/cart/update', [CartController::class, 'updateItem']);
-    Route::get('/cart/delete', [CartController::class, 'deleteItem']);
+    Route::post('/cart/delete', [CartController::class, 'deleteItem']);
     Route::get('/cart/clear', [CartController::class, 'clearCart']);
 });
 
@@ -71,7 +71,7 @@ Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetP
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('guest')->name('password.post');
 
-
+// Indonesian Region
 Route::get('form', [HomeController::class, 'address']);
 Route::post('/getRegency', [HomeController::class, 'getRegency'])->name('getRegency');
 Route::post('/getDistrict', [HomeController::class, 'getDistrict'])->name('getDistrict');

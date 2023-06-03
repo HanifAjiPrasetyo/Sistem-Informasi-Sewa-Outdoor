@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('product_id');
+            $table->foreignId('shipping_id');
+            $table->foreignId('payment_id');
+            $table->date('rent_date');
             $table->timestamps();
         });
     }

@@ -94,7 +94,7 @@ class UserProfileController extends Controller
 
         if ($request->file('photo')) {
             if ($request->oldPhoto) {
-                Storage::delete($request->oldpPhoto);
+                Storage::delete($request->oldPhoto);
             }
             $validated['photo'] = $request->file('photo')->store('user-photos');
         }

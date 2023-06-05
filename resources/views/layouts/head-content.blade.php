@@ -1,7 +1,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="google" content="notranslate" />
 <title>@yield('title')</title>
 <link rel="shortcut icon" href="{{ asset('assets/img/LOGO-MC.jpg') }}" type="image/x-icon">
 <link rel="stylesheet" type="text/css"
@@ -41,26 +40,4 @@
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
         'GTM-K9BGS8K': true
     });
-</script>
-
-<script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-46172202-22', 'auto', {
-        allowLinker: true
-    });
-    ga('set', 'anonymizeIp', true);
-    ga('require', 'GTM-K9BGS8K');
-    ga('require', 'displayfeatures');
-    ga('require', 'linker');
-    ga('linker:autoLink', ["2checkout.com", "avangate.com"]);
 </script>

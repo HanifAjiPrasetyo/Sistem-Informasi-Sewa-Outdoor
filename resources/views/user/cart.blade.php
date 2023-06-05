@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <div class="mb-0 small fw-bold text-dark" id="subtotal">
-                                                Rp{{ number_format($row->subtotal, 2, ',', '.') }}
+                                                Rp{{ number_format($row->subtotal, 2, ',', '.') }} / day
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-end">
@@ -137,7 +137,7 @@
                 </div>
 
                 <center>
-                    <a class="btn btn-dark shadow" href="/user/rent">
+                    <a href="/user/rent/checkout" class="btn btn-dark shadow">
                         <i class="fa-solid fa-cash-register fa-lg text-success mx-1"></i>
                         Checkout
                     </a>

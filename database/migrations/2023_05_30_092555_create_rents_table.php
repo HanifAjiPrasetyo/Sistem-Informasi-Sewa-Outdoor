@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
+            $table->string('rent_id')->unique();
             $table->foreignId('user_id');
-            $table->foreignId('product_id');
-            $table->foreignId('shipping_id');
-            $table->foreignId('payment_id');
-            $table->date('rent_date');
+            $table->foreignId('shipping_id')->nullable();
+            $table->foreignId('payment_id')->nullable();
+            $table->integer('duration');
+            $table->dateTime('rent_start');
+            $table->dateTime('rent_end');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

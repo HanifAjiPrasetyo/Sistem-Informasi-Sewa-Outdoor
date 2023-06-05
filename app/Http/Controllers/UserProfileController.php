@@ -19,6 +19,9 @@ class UserProfileController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
+        if (auth()->user()->username === 'admin') {
+            return redirect('/')->with('error', 'You are an admin');
+        }
         return view('user.profile.index', compact('user'));
     }
 

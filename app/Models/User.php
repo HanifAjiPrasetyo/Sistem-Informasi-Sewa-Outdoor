@@ -43,4 +43,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Cart::class);
     }
+    public function rents()
+    {
+        return $this->hasMany(Rent::class);
+    }
 }

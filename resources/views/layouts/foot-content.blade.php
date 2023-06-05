@@ -1,14 +1,8 @@
 <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-
-<script src="../assets/js/plugins/countup.min.js"></script>
-
-<script src="../assets/js/plugins/parallax.min.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/countup.min.js"></script>
+<script src="/assets/js/plugins/parallax.min.js"></script>
 <script src="/assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -97,10 +91,6 @@
         }, 6);
     }
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816"
-    integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw=="
-    data-cf-beacon='{"rayId":"7c064fa2d80187db","version":"2023.4.0","r":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}'
-    crossorigin="anonymous"></script>
 
 <script>
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -111,75 +101,69 @@
     $(function() {
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        })
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
     });
 
     $(function() {
-
-        $('#province').on('change', function() {
-            let id_province = $('#province').val();
+        $("#province").on("change", function() {
+            let id_province = $("#province").val();
             $.ajax({
-                type: 'POST',
+                type: "POST",
                 url: "{{ route('getRegency') }}",
                 data: {
-                    id_province: id_province
+                    id_province: id_province,
                 },
                 cache: false,
 
                 success: function(msg) {
-                    $('#regency').html(msg);
-                    $('#district').html('');
-                    $('#village').html('');
+                    $("#regency").html(msg);
+                    $("#district").html("");
+                    $("#village").html("");
                 },
                 error: function(data) {
-                    console.log('error:', data);
-                }
-            })
+                    console.log("error:", data);
+                },
+            });
         });
 
-        $('#regency').on('change', function() {
-            let id_regency = $('#regency').val();
+        $("#regency").on("change", function() {
+            let id_regency = $("#regency").val();
             $.ajax({
-                type: 'POST',
+                type: "POST",
                 url: "{{ route('getDistrict') }}",
                 data: {
-                    id_regency: id_regency
+                    id_regency: id_regency,
                 },
                 cache: false,
 
                 success: function(msg) {
-                    $('#district').html(msg);
+                    $("#district").html(msg);
                 },
                 error: function(data) {
-                    console.log('error:', data);
-                }
-            })
+                    console.log("error:", data);
+                },
+            });
         });
 
-        $('#district').on('change', function() {
-            let id_district = $('#district').val();
+        $("#district").on("change", function() {
+            let id_district = $("#district").val();
             $.ajax({
-                type: 'POST',
+                type: "POST",
                 url: "{{ route('getVillage') }}",
                 data: {
-                    id_district: id_district
+                    id_district: id_district,
                 },
                 cache: false,
 
                 success: function(msg) {
-                    $('#village').html(msg);
+                    $("#village").html(msg);
                 },
                 error: function(data) {
-                    console.log('error:', data);
-                }
-            })
+                    console.log("error:", data);
+                },
+            });
         });
-
     });
-</script>
-
-<script>
-    const pwInput = document.querySelector('#password');
 </script>

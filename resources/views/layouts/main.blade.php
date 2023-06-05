@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
     @include('layouts.head-content')
@@ -17,7 +16,6 @@
 
         <section class="py-5">
             @yield('container')
-            @yield('category')
         </section>
 
     </div>

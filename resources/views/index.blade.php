@@ -8,6 +8,16 @@
     <div class="page-header min-vh-100" style="background-image: url('https://source.unsplash.com/1200x800?camp');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
+            @if (session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+                    <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
+                    <span class="alert-text text-light">{{ session('error') }}</span>
+                    <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                        aria-label="Close">
+                        <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mx-auto my-auto">
                     <h2 class="text-white">Find Your Camp Equipment</h2>

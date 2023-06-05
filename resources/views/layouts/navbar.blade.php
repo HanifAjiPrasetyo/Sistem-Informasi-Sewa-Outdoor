@@ -152,7 +152,7 @@
                                         </li>
                                         <li class="nav-item list-group-item border-0 p-0">
                                             <a class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-center"
-                                                href="">
+                                                href="/user/rent/">
                                                 <i class="fa-solid fa-receipt mx-2"></i>
                                                 <h6 class="dropdown-header text-dark font-weight-bolder p-0">
                                                     Transactions
@@ -197,7 +197,7 @@
                                             </h6>
                                         </a>
                                         <a class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-center"
-                                            href="">
+                                            href="/user/rent">
                                             <i class="fa-solid fa-receipt mx-2"></i>
                                             <h6 class="dropdown-header text-dark font-weight-bolder p-0">
                                                 Transactions

@@ -87,7 +87,7 @@
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
                                     <div class="card-body pb-2">
-                                        <form action="/user/rent" method="post">
+                                        <form action="/user/rent/checkout" method="post">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <label class="fw-bold" for="quantity">Quantity :</label>

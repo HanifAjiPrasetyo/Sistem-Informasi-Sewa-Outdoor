@@ -155,7 +155,7 @@
                                                 href="/user/rent/">
                                                 <i class="fa-solid fa-receipt mx-2"></i>
                                                 <h6 class="dropdown-header text-dark font-weight-bolder p-0">
-                                                    Transactions
+                                                    Rents
                                                 </h6>
                                             </a>
                                         </li>
@@ -200,7 +200,7 @@
                                             href="/user/rent">
                                             <i class="fa-solid fa-receipt mx-2"></i>
                                             <h6 class="dropdown-header text-dark font-weight-bolder p-0">
-                                                Transactions
+                                                Rents
                                             </h6>
                                         </a>
                                     @else

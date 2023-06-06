@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <div class="page-header min-vh-100" style="background-image: url('https://source.unsplash.com/1200x800?camp');">
+    <div class="page-header min-vh-100" style="background-image: url('{{ asset('assets/img/landing-page.jpg') }}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             @if (session()->has('error'))

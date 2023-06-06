@@ -55,6 +55,7 @@ Route::resource('/user/profile', UserProfileController::class)->middleware('auth
 
 // User Rent Routes
 Route::get('/user/rent', [RentController::class, 'index'])->middleware('auth');
+Route::get('/user/rent/detail', [RentController::class, 'show'])->middleware('auth');
 Route::get('/user/rent/checkout', [RentController::class, 'checkout'])->middleware('auth');
 Route::post('/user/rent/checkout', [RentController::class, 'store'])->middleware('auth');
 

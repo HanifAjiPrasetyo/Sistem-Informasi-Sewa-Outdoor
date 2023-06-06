@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <div class="page-header" style="background-image: url('https://source.unsplash.com/1200x600?camp'); height:42vh">
+    <div class="page-header" style="background-image: url('https://source.unsplash.com/1200x600?hiker'); height:42vh">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">
@@ -45,39 +45,41 @@
             </div>
         @endif
 
-        <div class="row justify-content-center bg-gradient-success rounded">
+        <div class="row justify-content-center bg-gradient-success rounded gap-3">
 
             <div class="col-lg-3 mb-3 mt-4 text-center">
                 @if ($user->photo)
                     <img src="{{ asset('storage/' . $user->photo) }}" alt="User Photo"
-                        class="img-fluid rounded-circle shadow-lg" style="height:250px; width:250px">
+                        class="img-fluid rounded-circle shadow-lg" style="height:260px; width:250px">
                 @else
                     <img src="{{ asset('storage/user-photos/no-photo.png') }}" alt="User Photo"
-                        class="img-fluid rounded-circle shadow-lg" style="height:250px; width:250px">
+                        class="img-fluid rounded-circle shadow-lg" style="height:260px; width:250px">
                 @endif
             </div>
-            <div class="col-lg-6 text-light mt-4 px-3">
-                <div class="name mb-2">
-                    <small class="fw-bold text-dark">Name</small>
-                    <div class="h5 text-light fw-bold">{{ $user->name }}</div>
-                </div>
-                <div class="username mb-2">
-                    <small class="text-dark fw-bold">Username</small>
-                    <div class="h6 text-light fw-bold">{{ $user->username }}</div>
-                </div>
-                <div class="email mb-2">
-                    <small class="text-dark fw-bold">Email</small>
-                    <div class="h6 text-light fw-bold">{{ $user->email }}</div>
-                </div>
-                <div class="address mb-5">
-                    <small class="text-dark fw-bold">Address</small>
-                    <div class="small fw-bold text-uppercase">{{ $user->address }}</div>
-                </div>
-                <div class="update text-end">
-                    <a href="/user/profile/{{ $user->id }}/edit" class="btn btn-info text-light fw-bold">
-                        <i class="fa-solid fa-pen-to-square mx-1"></i>
-                        Edit
-                    </a>
+            <div class="col-lg-6 text-light mt-4 px-3 shadow-lg mb-3 rounded">
+                <div class="mx-2">
+                    <div class="name mb-2">
+                        <small class="fw-bold text-dark">Name</small>
+                        <div class="h5 text-light fw-bold">{{ $user->name }}</div>
+                    </div>
+                    <div class="username mb-2">
+                        <small class="text-dark fw-bold">Username</small>
+                        <div class="h6 text-light fw-bold">{{ $user->username }}</div>
+                    </div>
+                    <div class="email mb-2">
+                        <small class="text-dark fw-bold">Email</small>
+                        <div class="h6 text-light fw-bold">{{ $user->email }}</div>
+                    </div>
+                    <div class="address mb-5">
+                        <small class="text-dark fw-bold">Address</small>
+                        <div class="small fw-bold text-uppercase text-xs">{{ $user->address }}</div>
+                    </div>
+                    <div class="update text-end">
+                        <a href="/user/profile/{{ $user->id }}/edit" class="btn btn-dark text-light fw-bold">
+                            <i class="fa-solid fa-pen-to-square mx-1"></i>
+                            Edit
+                        </a>
+                    </div>
                 </div>
             </div>
 

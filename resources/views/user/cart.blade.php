@@ -75,14 +75,14 @@
                             <div class="card rounded mb-3 bg-gray-400">
                                 <div class="card-body p-3">
                                     <div class="row d-flex justify-content-between align-items-center">
-                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <div class="col-md-2 col-lg-2 col-xl-2 text-center">
                                             <img src="{{ asset('storage/' . $row->product->image) }}"
                                                 class="img-fluid rounded" alt="Item Image"
                                                 style="height:100px; width:200px">
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <p class="h6 text-dark fw-bold my-0">{{ $row->product->name }}</p>
-                                            <p class="small text-xs fw-bold">
+                                        <div class="col-md-2 col-lg-2 col-xl-2 text-center">
+                                            <p class="small text-dark fw-bold my-0">{{ $row->product->name }}</p>
+                                            <p class="small text-xxs fw-bold">
                                                 <span class="text-muted">{{ $row->product->category->name }}</span>
                                             </p>
                                         </div>
@@ -110,13 +110,13 @@
                                                 Rp{{ number_format($row->subtotal, 2, ',', '.') }} / day
                                             </div>
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2 text-end">
+                                        <div class="col-md-2 col-lg-2 col-xl-2 text-end text-lg-center mt-3">
                                             <form action="/user/cart/delete" method="post">
                                                 @csrf
                                                 <input type="hidden" name="cart_id" value="{{ $row->id }}">
-                                                <button type="submit" class="btn btn-sm btn-dark text-xs"
+                                                <button type="submit" class="btn btn-dark btn-sm"
                                                     onclick="return confirm('Delete item?')">
-                                                    <i class="fas fa-circle-xmark fs-6 ms-1 text-danger"></i> Delete
+                                                    <i class="fas fa-circle-xmark text-danger fs-6 my-1"></i>
                                                 </button>
                                             </form>
                                         </div>
@@ -129,7 +129,7 @@
                     @if ($carts->count() !== 0)
                         <div class="col-lg-4 ms-auto pb-2 shadow-lg p-4 rounded">
                             <div class="h6 fw-bold text-light text-center">
-                                Total : Rp{{ number_format($carts->sum('subtotal'), 2, ',', '.') }}
+                                Total : Rp{{ number_format($carts->sum('subtotal'), 2, ',', '.') }} / day
                             </div>
                         </div>
                     @endif

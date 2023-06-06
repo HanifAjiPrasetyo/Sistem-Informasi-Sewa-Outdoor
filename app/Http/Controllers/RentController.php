@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Midtrans\Snap;
 use App\Models\Cart;
 use App\Models\Rent;
-use App\Models\RentProduct;
 use App\Models\User;
 use Midtrans\Config;
+use App\Models\RentProduct;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRentRequest;
 use App\Http\Requests\UpdateRentRequest;
@@ -19,7 +19,12 @@ class RentController extends Controller
      */
     public function index()
     {
-        return 'INI HALAMAN TRANSAKSI';
+        $user = User::find(auth()->user()->id);
+        $rents = Rent::where('user_id', $user->id)->get();
+
+        return view('user.rent.index', [
+            'rents' => $rents
+        ]);
     }
 
     public function checkout()
@@ -41,16 +46,6 @@ class RentController extends Controller
                 'items' => $items
             ]);
         }
-    }
-    public function detailCheckout(Request $request)
-    {
-        $duration = $request->duration;
-        $rent_start = $request->rent_start;
-
-        return view('user.rent.checkout', [
-            'duration' => $duration,
-            'rent_start' => $rent_start
-        ]);
     }
 
     /**
@@ -89,6 +84,7 @@ class RentController extends Controller
 
         foreach ($rents as $rent) {
             $rent_id = $rent->id;
+            $id_rent = $rent->rent_id;
         }
         foreach ($items as $item) {
             $rentProductData = [
@@ -102,45 +98,50 @@ class RentController extends Controller
         }
 
         $rent_products = RentProduct::where('rent_id', $rent_id)->get();
+        $total_pay = $duration * $items->sum('subtotal');
+
+        Config::$serverKey = 'SB-Mid-server-rcZlMBqZR9zPbEZcee7law8v';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        Config::$isProduction = false;
+        // Set sanitization on (default)
+        Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $id_rent,
+                'gross_amount' => $total_pay,
+            ),
+            'customer_details' => array(
+                'full_name' => $rent->user->name,
+                'email' => $rent->user->email,
+            ),
+        );
+
+        $snapToken = Snap::getSnapToken($params);
 
         return view('user.rent.payment', [
             'rents' => $rents,
-            'rent_products' => $rent_products
+            'rent_products' => $rent_products,
+            'pay_token' => $snapToken
         ]);
     }
 
     public function payment()
     {
-        return view('user.rent.payment');
-        // Config::$serverKey = 'SB-Mid-server-rcZlMBqZR9zPbEZcee7law8v';
-        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        // Config::$isProduction = false;
-        // // Set sanitization on (default)
-        // Config::$isSanitized = true;
-        // // Set 3DS transaction for credit card to true
-        // Config::$is3ds = true;
-
-        // $params = [
-        //     'transaction_details' => [
-        //         'order_id' => rand(),
-        //         'gross_amount' => 10000,
-        //     ],
-        //     'customer_details' => [
-        //         'first_name' => 'budi',
-        //         'last_name' => 'pratama',
-        //         'email' => 'budi.pra@example.com'
-        //     ],
-        // ];
-
-        // $snapToken = Snap::getSnapToken($params);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rent $rent)
+    public function show()
     {
-        //
+        $rentId = request('id');
+
+        $rent_products = RentProduct::where('rent_id', $rentId)->get();
+
+        return view('user.rent.detail', compact('rent_products'));
     }
 
     /**

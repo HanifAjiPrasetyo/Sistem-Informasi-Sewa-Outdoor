@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <div class="page-header" style="background-image: url('https://source.unsplash.com/1200x800?camp'); height:43vh">
+    <div class="page-header" style="background-image: url('{{ asset('assets/img/products.jpg') }}'); height:43vh">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             <div class="row justify-content-center">

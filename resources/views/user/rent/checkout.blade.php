@@ -30,7 +30,6 @@
                 </button>
             </div>
         @endif
-
         @if (session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
                 <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
@@ -63,7 +62,7 @@
                                                 <div class="row d-flex justify-content-center align-items-center">
                                                     <div class="col-lg-4 mb-2 text-center">
                                                         <img src="{{ asset('storage/' . $item->product->image) }}"
-                                                            class="img-fluid rounded-pill" alt="Item Image"
+                                                            class="img-fluid rounded" alt="Item Image"
                                                             style="height:40px; width:60px">
                                                         <div class="mt-1 ms-1 fw-bold">{{ $item->product->name }}</div>
                                                     </div>
@@ -82,8 +81,11 @@
                                 @endforeach
                                 <div class="col-lg-3">
                                     <div class="card rounded">
-                                        <div class="card-body small fw-bold py-2">Total :
-                                            Rp{{ number_format($items->sum('subtotal'), 2, ',', '.') }} / day</div>
+                                        <div class="card-body small fw-bold py-2 text-dark">Total :
+                                            <span class="small text-dark">
+                                                Rp{{ number_format($items->sum('subtotal'), 2, ',', '.') }} / day
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 shadow bg-gray-100 rounded p-3 w-lg-75">
@@ -112,7 +114,7 @@
                                                 class="px-2 fw-bold bg-transparent border-0 small text-dark" disabled>
                                         </div>
                                         <center>
-                                            <button type="button" class="btn btn-success mt-2 fw-bold text-light">
+                                            <button type="submit" class="btn btn-success mt-2 fw-bold text-light">
                                                 <i class="fa-solid fa-money-bill me-1"></i>
                                                 Bayar
                                             </button>

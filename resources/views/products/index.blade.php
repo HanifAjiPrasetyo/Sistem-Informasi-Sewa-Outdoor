@@ -43,6 +43,10 @@
                                     @endif
                                 @endforeach
                             </div>
+                        @elseif(request('search'))
+                            <div class="small">All result of <span class="text-dark mx-1">{{ request('search') }}</span>
+                                :
+                            </div>
                         @else
                             All Products
                         @endif

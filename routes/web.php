@@ -59,6 +59,8 @@ Route::get('/user/rent/detail', [RentController::class, 'show'])->middleware('au
 Route::get('/user/rent/checkout', [RentController::class, 'checkout'])->middleware('auth');
 Route::post('/user/rent/checkout', [RentController::class, 'store'])->middleware('auth');
 
+// Route::post('/midtrans-callback', [RentController::class, 'callback']);
+
 //Register Routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);

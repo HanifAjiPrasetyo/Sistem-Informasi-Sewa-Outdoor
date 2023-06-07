@@ -23,6 +23,16 @@
 
 @section('container')
     <div class="container">
+        @if (session()->has('success'))
+            <div class="alert alert-info alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+                <span class="alert-icon"><i class="fa-solid fa-thumbs-up mx-2"></i></span>
+                <span class="alert-text">{{ session('success') }}</span>
+                <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                    aria-label="Close">
+                    <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="col-lg-6 mb-3">
             <div class="h5">Total : {{ $rents->count() }} Rent</div>
         </div>

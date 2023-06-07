@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Rent;
 use App\Models\User;
 use Midtrans\Config;
+use App\Models\Product;
 use App\Models\RentProduct;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRentRequest;
@@ -20,7 +21,7 @@ class RentController extends Controller
     public function index()
     {
         $user = User::find(auth()->user()->id);
-        $rents = Rent::where('user_id', $user->id)->get();
+        $rents = Rent::latest()->where('user_id', $user->id)->get();
 
         return view('user.rent.index', [
             'rents' => $rents
@@ -62,12 +63,12 @@ class RentController extends Controller
     public function store(Request $request)
     {
         $userId = auth()->user()->id;
-        $items = Cart::where('user_id', $userId)->get();
+        $items = Cart::all()->where('user_id', $userId);
 
         $duration = $request->duration;
         $rentStart = $request->rent_start;
         $rentEnd = $request->rent_end;
-        $rentId = uniqid();
+        $rentId = uniqid('MAL-');
 
         $rentData = [
             'rent_id' => $rentId,
@@ -75,7 +76,7 @@ class RentController extends Controller
             'duration' => $duration,
             'rent_start' => $rentStart,
             'rent_end' => $rentEnd,
-            'status' => 'test',
+            'status' => 'Unpaid',
         ];
 
         Rent::create($rentData);
@@ -86,6 +87,7 @@ class RentController extends Controller
             $rent_id = $rent->id;
             $id_rent = $rent->rent_id;
         }
+
         foreach ($items as $item) {
             $rentProductData = [
                 'rent_id' => $rent_id,
@@ -97,10 +99,11 @@ class RentController extends Controller
             RentProduct::create($rentProductData);
         }
 
-        $rent_products = RentProduct::where('rent_id', $rent_id)->get();
-        $total_pay = $duration * $items->sum('subtotal');
+        $total_pay = $items->sum('subtotal') * $duration;
 
-        Config::$serverKey = 'SB-Mid-server-rcZlMBqZR9zPbEZcee7law8v';
+        $rent_products = RentProduct::where('rent_id', $rent_id)->get();
+
+        Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         Config::$isProduction = false;
         // Set sanitization on (default)
@@ -108,16 +111,16 @@ class RentController extends Controller
         // Set 3DS transaction for credit card to true
         Config::$is3ds = true;
 
-        $params = array(
-            'transaction_details' => array(
+        $params = [
+            'transaction_details' => [
                 'order_id' => $id_rent,
                 'gross_amount' => $total_pay,
-            ),
-            'customer_details' => array(
-                'full_name' => $rent->user->name,
-                'email' => $rent->user->email,
-            ),
-        );
+            ],
+            'customer_details' => [
+                'first_name' => $rent->user->name,
+                'email' => $rent->user->email
+            ],
+        ];
 
         $snapToken = Snap::getSnapToken($params);
 
@@ -128,8 +131,26 @@ class RentController extends Controller
         ]);
     }
 
-    public function payment()
+    public function callback(Request $request)
     {
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        $rent = Rent::where('rent_id', $request->order_id)->get();
+        $rentId = $rent[0]->id;
+        // $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+        // $userId = auth()->user()->id;
+
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == 'capture' || $request->fraud_status == 'accept') {
+                $rentData = Rent::find($rentId);
+                $rentData->update(['status' => 'Paid']);
+            }
+        }
+
+        //     Cart::where('user_id', $userId)->delete();
+        //     foreach ($rentProducts as $rp) {
+        //         Product::where('id', $rp->product_id)->update(['stock' => ($rp->product->stock) - $rp->quantity]);
+        //     }
     }
 
     /**

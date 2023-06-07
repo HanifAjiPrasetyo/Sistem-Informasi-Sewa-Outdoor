@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    User | Cart
+    User | Payment
 @endsection
 
 @section('header')
@@ -37,7 +37,29 @@
         var payToken = document.getElementById('payToken').value;
         payButton.addEventListener('click', function() {
             // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-            window.snap.pay(payToken);
+            window.snap.pay(payToken, {
+                onSuccess: function(result) {
+                    /* You may add your own implementation here */
+                    alert("Payment success!");
+                    console.log(result);
+                    window.location.replace("/user/rent");
+                },
+                onPending: function(result) {
+                    /* You may add your own implementation here */
+                    alert("Waiting your payment!");
+                    console.log(result);
+                },
+                onError: function(result) {
+                    /* You may add your own implementation here */
+                    alert("Payment failed!");
+                    console.log(result);
+                    window.location.replace("/user/rent/checkout");
+                },
+                onClose: function() {
+                    /* You may add your own implementation here */
+                    alert('You closed the popup without finishing the payment');
+                }
+            });
             // customer will be redirected after completing payment pop-up
         });
     </script>

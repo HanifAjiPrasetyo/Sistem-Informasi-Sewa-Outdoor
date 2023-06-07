@@ -19,7 +19,8 @@ class ProductController extends Controller
         }
 
         return view('products.index', [
-            'products' => $products->paginate(4)
+            'products' => $products->paginate(4),
+            'header' => request('search')
         ]);
     }
 

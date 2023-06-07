@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="SB-Mid-client-9siotrP8_o8DbhmW"></script>
+    data-client-key="{{ config('midtrans.client_key') }}"></script>
 <title>@yield('title')</title>
 <link rel="shortcut icon" href="{{ asset('assets/img/LOGO-MC.jpg') }}" type="image/x-icon">
 <link rel="stylesheet" type="text/css"

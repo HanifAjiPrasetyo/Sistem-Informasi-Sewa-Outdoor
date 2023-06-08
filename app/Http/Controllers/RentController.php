@@ -137,20 +137,19 @@ class RentController extends Controller
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         $rent = Rent::where('rent_id', $request->order_id)->get();
         $rentId = $rent[0]->id;
-        // $rentProducts = RentProduct::where('rent_id', $rentId)->get();
-        // $userId = auth()->user()->id;
+        $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+        $userId = $rent[0]->user_id;
 
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture' || $request->fraud_status == 'accept') {
                 $rentData = Rent::find($rentId);
                 $rentData->update(['status' => 'Paid']);
+                Cart::where('user_id', $userId)->delete();
+                foreach ($rentProducts as $rp) {
+                    Product::where('id', $rp->product_id)->update(['stock' => ($rp->product->stock) - $rp->quantity]);
+                }
             }
         }
-
-        //     Cart::where('user_id', $userId)->delete();
-        //     foreach ($rentProducts as $rp) {
-        //         Product::where('id', $rp->product_id)->update(['stock' => ($rp->product->stock) - $rp->quantity]);
-        //     }
     }
 
     /**

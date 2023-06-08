@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardMemberController;
 use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardTransactionController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\UserProfileController;
 
@@ -30,15 +31,12 @@ Route::prefix('dashboard')->group(function () {
     // Dashboard Member Routes
     Route::resource('/members', DashboardMemberController::class)->middleware('admin');
 
-    Route::get('/billings', function () {
-        return view('dashboard.billings.index');
-    });
-    Route::get('/transactions', function () {
-        return view('dashboard.transactions.index');
-    });
-    Route::get('/profile', function () {
-        return view('dashboard.edit-profile.index');
-    });
+    // Route::get('/billings', function () {
+    //     return view('dashboard.billings.index');
+    // });
+
+    // Dashboard Transaction Routes
+    Route::resource('/transactions', DashboardTransactionController::class)->middleware('admin');
 });
 
 // User Cart Routes

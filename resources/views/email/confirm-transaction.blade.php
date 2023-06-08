@@ -68,7 +68,7 @@
                                 <h3 style="color:darkblue; font-size:large; margin-top:6px">Silahkan hubungi
                                     <span>
                                         <a href="https://api.whatsapp.com/send/?phone=6285755222360&text&type=phone_number&app_absent=0"
-                                            style="text-decoration: none; color:rgb(130, 204, 56)">+6285755222360
+                                            style="text-decoration: none; color:rgb(109, 170, 48)">+6285755222360
                                         </a>
                                     </span>
                                     untuk proses lebih lanjut.
@@ -82,4 +82,4 @@
     </div>
 </div>
 
-@include('layouts.foot-content');
+@include('layouts.foot-content')

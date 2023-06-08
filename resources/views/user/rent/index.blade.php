@@ -91,8 +91,8 @@
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ Carbon::parse($rent->rent_start)->format('l, d M Y H:i') }}
+                                            <span class="text-secondary text-xs font-weight-bold">
+                                                {{ Carbon::parse($rent->rent_start)->format('l, d M Y H:i') }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">

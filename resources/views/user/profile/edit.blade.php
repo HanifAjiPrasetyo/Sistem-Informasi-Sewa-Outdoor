@@ -25,11 +25,11 @@
                     class="p-3">
                     @method('put')
                     @csrf
-                    <div class="col-lg-7 m-auto text-center">
-                        <div class="card bg-transparent rounded-0">
+                    <div class="col-lg-7 m-auto text-center mb-3">
+                        <div class="card rounded">
                             <div class="card-body p-3">
                                 <div class="input-group input-group-static is-valid">
-                                    <label for="photo" class="text-light fw-bold">Photo</label>
+                                    <label for="photo" class="text-muted fw-bold">Photo</label>
                                     <input type="hidden" name="oldPhoto" value="{{ $user->photo }}">
                                     @if ($user->photo)
                                         <img src="{{ asset('storage/' . $user->photo) }}"
@@ -41,7 +41,7 @@
                                             style="width:150px;height:150px">
                                     @endif
                                     <input type="file"
-                                        class="@error('photo') is-invalid @enderror text-light text-xs bg-dark"
+                                        class="@error('photo') is-invalid @enderror text-light text-xs bg-dark m-auto"
                                         id="photo" name="photo" onchange="previewPhoto()">
                                     @error('photo')
                                         <div class="invalid-feedback">
@@ -52,12 +52,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card bg-transparent rounded-0">
+                    <div class="card rounded">
                         <div class="card-body">
                             <div class="row justify-content-center gap-4">
                                 <div class="col-lg-6 text-center my-auto">
                                     <div class="input-group input-group-static is-valid mb-4">
-                                        <label for="name" class="text-light fw-bold">Name</label>
+                                        <label for="name" class="text-muted fw-bold">Name</label>
                                         <input type="text"
                                             class="form-control @error('name') is-invalid @enderror text-dark"
                                             id="name" name="name" value="{{ old('name', $user->name) }}">
@@ -68,7 +68,7 @@
                                         @enderror
                                     </div>
                                     <div class="input-group input-group-static is-valid mb-4">
-                                        <label for="username" class="text-light fw-bold">Username</label>
+                                        <label for="username" class="text-muted fw-bold">Username</label>
                                         <input type="text"
                                             class="form-control @error('username') is-invalid @enderror text-dark"
                                             id="username" name="username" value="{{ old('username', $user->username) }}">
@@ -79,7 +79,7 @@
                                         @enderror
                                     </div>
                                     <div class="input-group input-group-static is-valid mb-3">
-                                        <label for="email" class="text-light fw-bold">Email</label>
+                                        <label for="email" class="text-muted fw-bold">Email</label>
                                         <input type="email"
                                             class="form-control @error('email') is-invalid @enderror text-dark"
                                             id="email" name="email" value="{{ old('email', $user->email) }}">
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="col-lg-5 text-center my-auto">
                                     <div class="input-group input-group-static is-valid mb-4">
-                                        <label for="province" class="text-light fw-bold">Address</label>
+                                        <label for="province" class="text-muted fw-bold">Address</label>
                                         <input type="hidden" name="address">
                                         <select name="province" id="province" class="form-control mb-1 border-0 text-dark"
                                             required>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                                 <center>
-                                    <button type="submit" class="btn btn-dark">
+                                    <button type="submit" class="btn btn-success">
                                         Update
                                     </button>
                                 </center>

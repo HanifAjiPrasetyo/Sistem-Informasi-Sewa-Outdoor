@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rent;
 use App\Models\Product;
+use App\Models\RentProduct;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use Illuminate\Routing\Controller;

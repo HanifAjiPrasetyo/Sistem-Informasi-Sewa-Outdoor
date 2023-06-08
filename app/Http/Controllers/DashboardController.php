@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Rent;
 use App\Models\User;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -12,7 +13,8 @@ class DashboardController extends Controller
     {
         return view('dashboard.index', [
             'products' => Product::all(),
-            'users' => User::all()
+            'users' => User::all(),
+            'rents' => Rent::all(),
         ]);
     }
 }

@@ -297,4 +297,7 @@
     let memberTable = new DataTable('#memberTable', {
         responsive: true
     });
+    let transactTable = new DataTable('#transactTable', {
+        responsive: true
+    });
 </script>

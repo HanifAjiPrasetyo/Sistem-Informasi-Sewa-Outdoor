@@ -47,7 +47,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center align-items-center">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
-                    style="height:270px; width:400px">>
+                    style="height:270px; width:400px">
                 <div class="h5 mt-2">{{ $product->name }}</div>
                 <div class="small mt-2 fw-bold">
                     Price : Rp{{ number_format($product->price, 2, ',', '.') }} / day

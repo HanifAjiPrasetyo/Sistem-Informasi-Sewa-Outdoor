@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-3">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="transactTable">
                             <thead>
                                 <tr class="table-success">
                                     <th

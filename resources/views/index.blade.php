@@ -5,16 +5,26 @@
 @endsection
 
 @section('header')
-    <div class="page-header min-vh-100" style="background-image: url('https://source.unsplash.com/1200x800?camp');">
+    <div class="page-header min-vh-100" style="background-image: url('{{ asset('assets/img/landing-page.jpg') }}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
+            @if (session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+                    <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
+                    <span class="alert-text text-light">{{ session('error') }}</span>
+                    <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                        aria-label="Close">
+                        <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mx-auto my-auto">
-                    <h2 class="text-white">Temukan Alat Camping-mu dengan Mudah</h2>
-                    <p class="lead mb-4 text-white opacity-8">Kemudahan dalam Menyewa Peralatan Camping untuk Memastikan Anda
-                        Siap dengan Perlengkapan Terbaik saat Menjelajahi Alam</p>
-                    <a href="/products" class="btn shadow-lg bg-white text-dark">Sewa Sekarang ! <span
-                            class="material-icons">arrow_forward</span>
+                    <h2 class="text-white">Find Your Camp Equipment</h2>
+                    <p class="lead mb-4 text-white opacity-8">Easy Rent, Easy Camp </p>
+                    <a href="/products" class="btn btn-success text-light text-capitalize h6 fw-bold">
+                        Rent Now!
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>
@@ -24,21 +34,21 @@
 
 @section('container')
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-center">
             <div class="col-lg-6">
                 <div class="row justify-content-start">
                     <div class="col-md-6">
                         <div class="info">
                             <i class="material-icons text-3xl text-gradient text-info mb-3">public</i>
-                            <h5>Fully integrated</h5>
-                            <p>We get insulted by others, lose trust for those We get back freezes</p>
+                            <h5>Easy Rent</h5>
+                            <p>Only from home, you can find what you need</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info">
-                            <i class="material-icons text-3xl text-gradient text-info mb-3">payments</i>
-                            <h5>Payments functionality</h5>
-                            <p>We get insulted by others, lose trust for those We get back freezes</p>
+                            <i class="material-icons text-3xl text-gradient text-info mb-3">stream</i>
+                            <h5>Responsive Admin</h5>
+                            <p>If you got troubles, just contact us on WhatsApp</p>
                         </div>
                     </div>
                 </div>
@@ -46,37 +56,16 @@
                     <div class="col-md-6">
                         <div class="info">
                             <i class="material-icons text-3xl text-gradient text-info mb-3">apps</i>
-                            <h5>Prebuilt components</h5>
-                            <p>We get insulted by others, lose trust for those We get back freezes</p>
+                            <h5>Many Stocks</h5>
+                            <p>We guaranteed, based on other stores in Malang</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info">
                             <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
-                            <h5>Improved platform</h5>
-                            <p>We get insulted by others, lose trust for those We get back freezes</p>
+                            <h5>Feedback</h5>
+                            <p>We wait for your impactfull feedback</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
-                <div class="card bg-gray-400">
-                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <a class="d-block blur-shadow-image">
-                            <img src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                                alt="img-colored-shadow" class="img-fluid border-radius-lg">
-                        </a>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="font-weight-normal">
-                            <a href="javascript:;">Get insights on Search</a>
-                        </h5>
-                        <p class="mb-0">
-                            Website visitors today demand a frictionless user expericence — especially when
-                            using search. Because of the hight standards.
-                        </p>
-                        <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out
-                            more</button>
                     </div>
                 </div>
             </div>

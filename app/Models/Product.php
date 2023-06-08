@@ -15,4 +15,12 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class);
     }
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+    public function rents()
+    {
+        return $this->belongsToMany(Rent::class);
+    }
 }

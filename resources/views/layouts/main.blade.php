@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
     @include('layouts.head-content')
 </head>
 
-<body class="bg-gray-300">
+<body class="bg-gray-500">
 
     <header class="bg-gradient-dark">
         @yield('header')

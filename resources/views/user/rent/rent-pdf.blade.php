@@ -8,7 +8,7 @@
 <head>
     <style>
         body {
-            background: rgb(167, 255, 79);
+            background: rgb(140, 255, 129);
         }
 
         .container {
@@ -21,6 +21,11 @@
 
         td {
             vertical-align: middle;
+        }
+
+        hr {
+            background: black;
+            width: 50%;
         }
     </style>
 </head>
@@ -50,7 +55,7 @@
                 <div class="card shadow bg-gray-400">
                     <div class="card-body fw-bold">
                         <div class="mb-2 h6" style="font-weight:bold">Informasi Sewa</div>
-                        <hr class="hr bg-dark w-50 mt-0 mb-1">
+                        <hr>
                         <div class="small text-dark mt-2">ID Sewa : <span class="text-xs">{{ $rent->rent_id }}</span>
                         </div>
                         <div class="small text-dark">Durasi : <span class="text-xs">{{ $rent->duration }} hari</span>
@@ -66,6 +71,8 @@
                             </span>
                         </div>
                         <div class="small text-dark">Status : <span class="text-xs">{{ $rent->status }}</span></div>
+                        <div class="small text-dark">Metode Pembayaran : <span
+                                class="text-xs">{{ $rent->payment_method }}</span></div>
                     </div>
                 </div>
             </div>
@@ -120,7 +127,9 @@
                                             Total Bayar :
                                         </td>
                                         <td style="text-align: center; padding:10px">
-                                            Rp{{ number_format($rentProducts->sum('total_price'), 2, ',', '.') }}
+                                            Rp{{ number_format($rentProducts->sum('total_price'), 2, ',', '.') }} x
+                                            {{ $rent->duration }}hari =
+                                            Rp{{ number_format($rentProducts->sum('total_price') * $rent->duration, 2, ',', '.') }}
                                         </td>
                                     </tr>
                                 </tbody>

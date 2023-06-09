@@ -13,13 +13,9 @@ class CartController extends Controller
     {
         $carts = Cart::all()->where('user_id', auth()->user()->id);
 
-        if ($carts->count() == 0) {
-            return view('user.cart');
-        } else {
-            return view('user.cart', [
-                'carts' => $carts
-            ]);
-        }
+        return view('user.cart', [
+            'carts' => $carts
+        ]);
     }
 
     public function addItem(Request $request)

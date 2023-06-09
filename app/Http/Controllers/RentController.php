@@ -163,11 +163,11 @@ class RentController extends Controller
     {
         $rentId = request('id');
 
-        $idRent = Rent::find($rentId)->rent_id;
+        $rent = Rent::find($rentId);
 
         $rent_products = RentProduct::where('rent_id', $rentId)->get();
 
-        return view('user.rent.detail', compact('rent_products', 'idRent'));
+        return view('user.rent.detail', compact('rent_products', 'rent'));
     }
 
     public function print()

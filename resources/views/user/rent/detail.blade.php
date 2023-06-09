@@ -24,7 +24,7 @@
 @section('container')
     <div class="container">
         <div class="col-lg-6 mb-3">
-            <div class="h5">Detail of Rent ID : {{ $idRent }}</div>
+            <div class="h5">Detail of Rent ID : {{ $rent->rent_id }}</div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -83,9 +83,11 @@
                                     <td></td>
                                     <td
                                         class="text-center align-middle fw-bold table-dark small text-uppercase rounded-start">
-                                        Total Pay</td>
+                                        Total Paid</td>
                                     <td class="text-center align-middle fw-bold table-dark small rounded-end">
-                                        Rp{{ number_format($rent_products->sum('total_price'), 2, ',', '.') }}
+                                        Rp{{ number_format($rent_products->sum('total_price'), 2, ',', '.') }} x
+                                        {{ $rent->duration }} day(s) =
+                                        Rp{{ number_format($rent_products->sum('total_price') * $rent->duration, 2, ',', '.') }}
                                     </td>
                                 </tr>
                             </tbody>

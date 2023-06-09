@@ -144,10 +144,14 @@ class RentController extends Controller
             if ($request->transaction_status == 'capture' || $request->fraud_status == 'accept') {
                 $rentData = Rent::find($rentId);
                 $rentData->update(['status' => 'Paid']);
+
                 Cart::where('user_id', $userId)->delete();
+
                 foreach ($rentProducts as $rp) {
                     Product::where('id', $rp->product_id)->update(['stock' => ($rp->product->stock) - $rp->quantity]);
                 }
+
+                Rent::where('id', $rentId)->update(['payment_method' => $request->payment_type]);
             }
         }
     }
@@ -159,9 +163,11 @@ class RentController extends Controller
     {
         $rentId = request('id');
 
+        $idRent = Rent::find($rentId)->rent_id;
+
         $rent_products = RentProduct::where('rent_id', $rentId)->get();
 
-        return view('user.rent.detail', compact('rent_products'));
+        return view('user.rent.detail', compact('rent_products', 'idRent'));
     }
 
     public function print()
@@ -170,11 +176,15 @@ class RentController extends Controller
         $rent = Rent::find($rentId);
         $rentProducts = RentProduct::where('rent_id', $rentId)->get();
 
-        $pdf = PDF::loadView('user.rent.rent-pdf', [
-            'rent' => $rent,
-            'rentProducts' => $rentProducts
-        ]);
-        return $pdf->download('invoice-' . $rent->rent_id . '.pdf');
+        if (auth()->user()->id == $rent->user_id) {
+            $pdf = PDF::loadView('user.rent.rent-pdf', [
+                'rent' => $rent,
+                'rentProducts' => $rentProducts
+            ]);
+            return $pdf->download('invoice-' . $rent->rent_id . '.pdf');
+        } else {
+            return redirect('/user/rent')->with('error', 'You are not a valid user 🫣');
+        }
     }
 
     public function pdf()

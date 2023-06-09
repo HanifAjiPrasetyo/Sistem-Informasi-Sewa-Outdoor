@@ -52,7 +52,7 @@
             <div class="col-lg-10">
                 <div class="card shadow">
                     <div class="table-responsive p-3">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="userRentTable">
                             <thead>
                                 <tr class="table-success">
                                     <th
@@ -77,6 +77,10 @@
                                     <th
                                         class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-9 text-dark">
                                         Status
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-9 text-dark">
+                                        Payment
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-9 text-dark">
@@ -114,6 +118,11 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $rent->status }}
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $rent->payment_method }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">

@@ -54,10 +54,12 @@
                     <i class="fa-solid fa-tent fs-6 mx-1" style="color:rgb(109, 231, 221)"></i>
                     Add Item
                 </a>
-                <a href="/user/cart/clear" class="btn btn-sm btn-dark" onclick="return confirm('Clear Cart?')">
-                    <i class="fa-solid fa-trash fs-6 mx-1" style="color:rgb(247, 81, 81)"></i>
-                    Clear Cart
-                </a>
+                @if ($carts->count() != 0)
+                    <a href="/user/cart/clear" class="btn btn-sm btn-dark" onclick="return confirm('Clear Cart?')">
+                        <i class="fa-solid fa-trash fs-6 mx-1" style="color:rgb(247, 81, 81)"></i>
+                        Clear Cart
+                    </a>
+                @endif
             </div>
         </div>
 

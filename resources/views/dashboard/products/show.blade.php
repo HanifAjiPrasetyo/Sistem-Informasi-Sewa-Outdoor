@@ -24,10 +24,10 @@
                     <div class="card-body px-0 pb-2 col-lg-11 text-center m-auto">
                         @if ($product->image)
                             <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
-                                alt="product-image" width="400" />
+                                alt="product-image" style="width:200px; height:200px" />
                         @else
                             <img src="{{ asset('storage/product-images/no-img.jpg') }}" class="img-fluid rounded"
-                                alt="product-image" width="400" />
+                                alt="product-image" style="width:200px; height:200px" />
                         @endif
                         <div class="fw-bold">
                             <span class="text-xs mx-2">Price : IDR {{ $product->price }} / day</span>

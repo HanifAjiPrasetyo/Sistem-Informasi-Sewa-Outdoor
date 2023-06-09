@@ -23,6 +23,9 @@
 
 @section('container')
     <div class="container">
+        <div class="col-lg-6 mb-3">
+            <div class="h5">Detail of Rent ID : {{ $idRent }}</div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="card shadow">

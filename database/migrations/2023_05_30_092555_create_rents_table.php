@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('rent_id')->unique();
             $table->foreignId('user_id');
             $table->foreignId('shipping_id')->nullable();
-            $table->foreignId('payment_id')->nullable();
             $table->integer('duration');
             $table->dateTime('rent_start');
             $table->dateTime('rent_end');
             $table->string('status')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rents');
+        Schema::table('rents', function ($table) {
+            Schema::dropIfExists('rents');
+        });
     }
 };

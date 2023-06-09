@@ -21,6 +21,12 @@
 </script>
 
 <script>
+    let userRentTable = new DataTable('#userRentTable', {
+        responsive: true,
+    });
+</script>
+
+<script>
     $(function() {
         $.ajaxSetup({
             headers: {

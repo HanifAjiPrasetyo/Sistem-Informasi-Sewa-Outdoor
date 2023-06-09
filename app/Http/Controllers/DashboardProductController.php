@@ -109,22 +109,28 @@ class DashboardProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $rents = Rent::where('status', 'Confirmed')->get();
+        $rents = Rent::all()->where('status', 'Confirmed');
 
         foreach ($rents as $rent) {
-            $rentId = $rent->id;
+            $rentId[] = $rent->id;
         }
 
-        $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+        $rentProducts = RentProduct::whereIn('rent_id', $rentId)->get();
 
-        // dd($rentProducts);
-
-        Product::destroy($product->id);
-
-        if ($product->image) {
-            Storage::delete($product->image);
+        foreach ($rentProducts as $rp) {
+            $productId[] = $rp->product_id;
         }
 
-        return redirect('/dashboard/products')->with('success', 'Product has been deleted!');
+        if (in_array($product->id, $productId)) {
+            return back()->with('error', 'This product is currently being rented');
+        } else {
+            Product::destroy($product->id);
+
+            if ($product->image) {
+                Storage::delete($product->image);
+            }
+
+            return redirect('/dashboard/products')->with('success', 'Product has been deleted!');
+        }
     }
 }

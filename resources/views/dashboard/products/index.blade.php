@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
-                        <div class="table-responsive p-0">
+                        <div class="table-responsive px-4">
                             <table class="table align-items-center mb-0" id="productTable">
                                 <thead>
                                     <tr>
@@ -87,8 +87,8 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">IDR
-                                                    {{ $product->price }}
+                                                <span
+                                                    class="text-secondary text-xs font-weight-bold">Rp{{ number_format($product->price, 2, ',', '.') }}
                                                     / day</span>
                                             </td>
                                             <td class="align-middle text-center">
@@ -122,9 +122,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="pagination pagination-sm pagination-dark d-flex justify-content-center mt-3">
-                            {{ $products->links() }}
                         </div>
                     </div>
                 </div>

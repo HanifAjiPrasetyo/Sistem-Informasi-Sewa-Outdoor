@@ -35,5 +35,9 @@ class DatabaseSeeder extends Seeder
             'slug' => 'other-equipment',
         ]);
 
+<<<<<<< Updated upstream
+=======
+        $this->call(IndoRegionSeeder::class);
+>>>>>>> Stashed changes
     }
 }

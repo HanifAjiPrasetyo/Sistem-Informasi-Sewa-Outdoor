@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('stock');
-            $table->decimal('price', 8, 2);
+            $table->bigInteger('price');
             $table->string('image')->nullable();
             $table->foreignId('category_id');
             $table->timestamps();

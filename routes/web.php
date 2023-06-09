@@ -1,51 +1,63 @@
 <?php
 
-use App\Http\Controllers\DashboardProductController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardMemberController;
+use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardTransactionController;
+use App\Http\Controllers\RentController;
+use App\Http\Controllers\UserProfileController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('index');
-});
+// Home Routes
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{product:id}', [ProductController::class, 'show']);
+Route::get('/about-us', [HomeController::class, 'about']);
 
 // Dashboard Routes
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', fn () => view('dashboard.index'))->middleware('admin');
-
-    Route::get('/members', function () {
-        return view('dashboard.members.index');
-    });
+    Route::get('/', [DashboardController::class, 'index'])->middleware('admin');
 
     // Dashboard Product Routes
     Route::resource('/products', DashboardProductController::class)->middleware('admin');
 
-    Route::get('/billings', function () {
-        return view('dashboard.billings.index');
-    });
-    Route::get('/transactions', function () {
-        return view('dashboard.transactions.index');
-    });
-    Route::get('/profile', function () {
-        return view('dashboard.edit-profile.index');
-    });
+    // Dashboard Member Routes
+    Route::resource('/members', DashboardMemberController::class)->middleware('admin');
+
+    // Route::get('/billings', function () {
+    //     return view('dashboard.billings.index');
+    // });
+
+    // Dashboard Transaction Routes
+    Route::resource('/transactions', DashboardTransactionController::class)->middleware('admin');
 });
 
-// User Routes
-Route::get('/user/cart', fn () => view('user.cart'));
+// User Cart Routes
+Route::group(['middleware' => ['auth'], 'prefix' => 'user'], function () {
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/add', [CartController::class, 'addItem']);
+    Route::post('/cart/update', [CartController::class, 'updateItem']);
+    Route::post('/cart/delete', [CartController::class, 'deleteItem']);
+    Route::get('/cart/clear', [CartController::class, 'clearCart']);
+});
+
+// User Profile Routes
+Route::resource('/user/profile', UserProfileController::class)->middleware('auth');
+
+// User Rent Routes
+Route::get('/user/rent', [RentController::class, 'index'])->middleware('auth');
+Route::get('/user/rent/detail', [RentController::class, 'show'])->middleware('auth');
+Route::get('/user/rent/checkout', [RentController::class, 'checkout'])->middleware('auth');
+Route::post('/user/rent/checkout', [RentController::class, 'store'])->middleware('auth');
+
+// Route::post('/midtrans-callback', [RentController::class, 'callback']);
 
 //Register Routes
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -56,6 +68,14 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-// Home Routes
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/about-us', fn () => view('about-us'));
+// Reset & Change Password
+Route::get('/forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->middleware('guest')->name('password.request');
+Route::post('/forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('guest')->name('password.post');
+
+// Indonesian Region
+Route::get('form', [HomeController::class, 'address']);
+Route::post('/getRegency', [HomeController::class, 'getRegency'])->name('getRegency');
+Route::post('/getDistrict', [HomeController::class, 'getDistrict'])->name('getDistrict');
+Route::post('/getVillage', [HomeController::class, 'getVillage'])->name('getVillage');

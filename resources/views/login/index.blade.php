@@ -48,6 +48,19 @@
                     <br><br>
                 @endif
 
+                @if (session()->has('message'))
+                    <div class="alert alert-success alert-dismissible fade show w-50 ms-auto me-auto text-light"
+                        role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2 mx-2"></i></span>
+                        <span class="alert-text">{{ session('message') }}</span>
+                        <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                        </button>
+                    </div>
+                    <br><br>
+                @endif
+
                 @if (session()->has('loginError'))
                     <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light"
                         role="alert">
@@ -64,7 +77,7 @@
                     </div>
                     <br><br>
                 @endif
-
+                <br><br>
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
@@ -73,6 +86,9 @@
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         Sign in
                                     </h4>
+                                    <p class="mb-0 text-center text-dark small fw-bold">
+                                        Enter your registered account
+                                    </p>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -89,10 +105,20 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-3 py-2">
-                                        <label class="form-label" for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            required />
+                                    <div class="d-flex align-items-center">
+                                        <div class="input-group input-group-outline mb-3 pt-2" style="width:90%">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                required />
+                                        </div>
+                                        <button type="button" class="eye btn p-0 fs-6 mx-2" data-bs-toggle="tooltip"
+                                            data-bs-title="Show Password" onclick="showPW()">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="eye-slash btn p-0 fs-6 mx-2 d-none"
+                                            data-bs-toggle="tooltip" data-bs-title="Hide Password" onclick="hidePW()">
+                                            <i class="fa-solid fa-eye-slash"></i>
+                                        </button>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
@@ -104,6 +130,13 @@
                                         <a href="/register" class="text-success text-gradient font-weight-bold">Sign
                                             up</a>
                                     </p>
+                                    <p class="text-sm text-center">
+                                        Forgot password?
+                                        <a href="/forget-password"
+                                            class="text-info text-gradient font-weight-bold">Change
+                                            Password
+                                        </a>
+                                    </p>
                                 </form>
                             </div>
                         </div>
@@ -113,6 +146,27 @@
         </div>
     </main>
     @include('dashboard.layouts.foot-content')
+    <script>
+        function showPW() {
+            const inputPW = document.querySelector('#password');
+            const eye = document.querySelector('.eye');
+            const eyeSlash = document.querySelector('.eye-slash');
+
+            inputPW.type = 'text';
+            eye.classList.add('d-none');
+            eyeSlash.classList.remove('d-none');
+        }
+
+        function hidePW() {
+            const inputPW = document.querySelector('#password');
+            const eye = document.querySelector('.eye');
+            const eyeSlash = document.querySelector('.eye-slash');
+
+            inputPW.type = 'password';
+            eyeSlash.classList.add('d-none');
+            eye.classList.remove('d-none');
+        }
+    </script>
 </body>
 
 </html>

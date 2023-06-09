@@ -33,5 +33,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Other Equipment',
             'slug' => 'other-equipment',
         ]);
+
+        $this->call(IndoRegionSeeder::class);
     }
 }

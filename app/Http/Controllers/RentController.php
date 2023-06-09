@@ -8,9 +8,9 @@ use App\Models\Rent;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\RentProduct;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreRentRequest;
 use App\Http\Requests\UpdateRentRequest;
 
 class RentController extends Controller
@@ -162,6 +162,24 @@ class RentController extends Controller
         $rent_products = RentProduct::where('rent_id', $rentId)->get();
 
         return view('user.rent.detail', compact('rent_products'));
+    }
+
+    public function print()
+    {
+        $rentId = request('id');
+        $rent = Rent::find($rentId);
+        $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+
+        $pdf = PDF::loadView('user.rent.rent-pdf', [
+            'rent' => $rent,
+            'rentProducts' => $rentProducts
+        ]);
+        return $pdf->download('invoice-' . $rent->rent_id . '.pdf');
+    }
+
+    public function pdf()
+    {
+        return view('user.rent.rent-pdf');
     }
 
     /**

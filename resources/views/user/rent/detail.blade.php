@@ -80,7 +80,7 @@
                                     <td></td>
                                     <td
                                         class="text-center align-middle fw-bold table-dark small text-uppercase rounded-start">
-                                        Total</td>
+                                        Total Pay</td>
                                     <td class="text-center align-middle fw-bold table-dark small rounded-end">
                                         Rp{{ number_format($rent_products->sum('total_price'), 2, ',', '.') }}
                                     </td>

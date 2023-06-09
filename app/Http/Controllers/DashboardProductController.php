@@ -109,6 +109,16 @@ class DashboardProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $rents = Rent::where('status', 'Confirmed')->get();
+
+        foreach ($rents as $rent) {
+            $rentId = $rent->id;
+        }
+
+        $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+
+        // dd($rentProducts);
+
         Product::destroy($product->id);
 
         if ($product->image) {

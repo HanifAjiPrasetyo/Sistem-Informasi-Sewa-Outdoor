@@ -23,6 +23,7 @@
 
 @section('container')
     <div class="container">
+
         @if (session()->has('success'))
             <div class="alert alert-info alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
                 <span class="alert-icon"><i class="fa-solid fa-thumbs-up mx-2"></i></span>
@@ -33,6 +34,17 @@
                 </button>
             </div>
         @endif
+        @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show w-25 ms-auto me-auto text-light" role="alert">
+                <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation mx-2"></i></span>
+                <span class="alert-text text-light">{{ session('error') }}</span>
+                <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
+                    aria-label="Close">
+                    <span aria-hidden="true" class="text-light text-dark fw-bold fs-4">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <div class="col-lg-6 mb-3">
             <div class="h5">Total : {{ $rents->count() }} Rent</div>
         </div>
@@ -96,8 +108,8 @@
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ Carbon::parse($rent->rent_end)->format('l, d M Y H:i') }}
+                                            <span class="text-secondary text-xs font-weight-bold">
+                                                {{ Carbon::parse($rent->rent_end)->format('l, d M Y H:i') }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">
@@ -107,6 +119,20 @@
                                         <td class="align-middle text-center">
                                             <a class="btn btn-sm btn-success text-capitalize text-xxs my-auto"
                                                 href="/user/rent/detail?id={{ $rent->id }}">Detail</a>
+                                            {{-- <form action="/user/rent/print" method="post" class="d-inline">
+                                                @csrf
+                                                <input type="hidden" name="rent_id" value="{{ $rent->id }}"> --}}
+                                            {{-- <button type="submit"
+                                                class="btn btn-sm btn-info text-capitalize text-xxs my-auto"
+                                                target="_blank">
+                                                Print PDF
+                                            </button> --}}
+                                            <a href="/user/rent/print/{{ $rent->id }}"
+                                                class="btn btn-sm btn-info text-capitalize text-xxs my-auto"
+                                                target="_blank">
+                                                Print PDF
+                                            </a>
+                                            {{-- </form> --}}
                                         </td>
                                     </tr>
                                 @endforeach

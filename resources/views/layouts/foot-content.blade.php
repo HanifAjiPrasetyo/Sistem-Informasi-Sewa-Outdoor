@@ -35,12 +35,73 @@
         });
     });
 
+    // $(function() {
+    //     $("#province").on("change", function() {
+    //         let id_province = $("#province").val();
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "{{ route('getRegency') }}",
+    //             data: {
+    //                 id_province: id_province,
+    //             },
+    //             cache: false,
+
+    //             success: function(msg) {
+    //                 $("#regency").html(msg);
+    //                 $("#district").html("");
+    //                 $("#village").html("");
+    //             },
+    //             error: function(data) {
+    //                 console.log("error:", data);
+    //             },
+    //         });
+    //     });
+
+    //     $("#regency").on("change", function() {
+    //         let id_regency = $("#regency").val();
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "{{ route('getDistrict') }}",
+    //             data: {
+    //                 id_regency: id_regency,
+    //             },
+    //             cache: false,
+
+    //             success: function(msg) {
+    //                 $("#district").html(msg);
+    //             },
+    //             error: function(data) {
+    //                 console.log("error:", data);
+    //             },
+    //         });
+    //     });
+
+    //     $("#district").on("change", function() {
+    //         let id_district = $("#district").val();
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "{{ route('getVillage') }}",
+    //             data: {
+    //                 id_district: id_district,
+    //             },
+    //             cache: false,
+
+    //             success: function(msg) {
+    //                 $("#village").html(msg);
+    //             },
+    //             error: function(data) {
+    //                 console.log("error:", data);
+    //             },
+    //         });
+    //     });
+    // });
+
     $(function() {
         $("#province").on("change", function() {
             let id_province = $("#province").val();
             $.ajax({
                 type: "POST",
-                url: "{{ route('getRegency') }}",
+                url: "https://80b0-125-166-2-13.ngrok-free.app/getRegency",
                 data: {
                     id_province: id_province,
                 },
@@ -61,7 +122,7 @@
             let id_regency = $("#regency").val();
             $.ajax({
                 type: "POST",
-                url: "{{ route('getDistrict') }}",
+                url: "https://80b0-125-166-2-13.ngrok-free.app/getDistrict",
                 data: {
                     id_regency: id_regency,
                 },
@@ -80,7 +141,7 @@
             let id_district = $("#district").val();
             $.ajax({
                 type: "POST",
-                url: "{{ route('getVillage') }}",
+                url: "https://80b0-125-166-2-13.ngrok-free.app/getVillage",
                 data: {
                     id_district: id_district,
                 },

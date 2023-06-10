@@ -24,8 +24,7 @@
         }
 
         hr {
-            background: black;
-            width: 50%;
+            background: rgb(0, 0, 0);
         }
     </style>
 </head>
@@ -38,7 +37,7 @@
                     <div class="card-body d-flex gap-2">
                         <div class="col-md-4" style="text-align: center">
                             <img src="assets/img/LOGO-MC.jpg" alt="Logo MC" class="img-fluid rounded"
-                                style="width:100px;height:80px">
+                                style="width:150px;height:100px">
                         </div>
                         <div class="col-lg-6 my-auto" style="text-align: center">
                             <div class="fs-5" style="font-weight:bold; margin-top:5px"><span
@@ -128,7 +127,7 @@
                                         </td>
                                         <td style="text-align: center; padding:10px">
                                             Rp{{ number_format($rentProducts->sum('total_price'), 2, ',', '.') }} x
-                                            {{ $rent->duration }}hari =
+                                            {{ $rent->duration }} hari =
                                             Rp{{ number_format($rentProducts->sum('total_price') * $rent->duration, 2, ',', '.') }}
                                         </td>
                                     </tr>

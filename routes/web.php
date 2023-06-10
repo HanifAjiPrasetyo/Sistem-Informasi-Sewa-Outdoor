@@ -76,7 +76,6 @@ Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showRes
 Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->middleware('guest')->name('password.post');
 
 // Indonesian Region
-Route::get('form', [HomeController::class, 'address']);
 Route::post('/getRegency', [HomeController::class, 'getRegency'])->name('getRegency');
 Route::post('/getDistrict', [HomeController::class, 'getDistrict'])->name('getDistrict');
 Route::post('/getVillage', [HomeController::class, 'getVillage'])->name('getVillage');

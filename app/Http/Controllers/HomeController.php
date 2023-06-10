@@ -21,17 +21,6 @@ class HomeController extends Controller
         return view('about-us');
     }
 
-
-
-    public function address()
-    {
-        $provinces =  Province::all();
-
-        return view('user.profile.edit', [
-            'provinces' => $provinces
-        ]);
-    }
-
     public function getRegency(Request $request)
     {
         $id_province = $request->id_province;

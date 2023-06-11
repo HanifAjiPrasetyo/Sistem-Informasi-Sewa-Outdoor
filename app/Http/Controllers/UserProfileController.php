@@ -77,7 +77,7 @@ class UserProfileController extends Controller
         $village = Village::find($request->village)->name;
 
         $rules = [
-            'photo' => 'image|file|max:2048',
+            'photo' => 'image|file|max:4096',
             'name' => 'required|max:255',
             'address' => ''
         ];

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    User | Profile
+    User | Edit Profile
 @endsection
 
 @section('header')

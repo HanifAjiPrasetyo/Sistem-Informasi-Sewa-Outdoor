@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    User | Rent
+    User | Rent Detail
 @endsection
 
 @section('header')

@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <div class="page-header min-vh-100" style="background-image: url('{{ asset('assets/img/landing-page.jpg') }}');">
+    <div class="page-header min-vh-100" style="background-image: url('{{ asset('assets/img/bg.jpg') }}');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
             @if (session()->has('error'))
@@ -35,36 +35,37 @@
 @section('container')
     <div class="container">
         <div class="row align-items-center justify-content-center">
-            <div class="col-lg-6">
-                <div class="row justify-content-start">
+            <div class="col-lg-7 bg-gradient-success rounded">
+                <div class="row justify-content-start px-4 mt-4">
                     <div class="col-md-6">
                         <div class="info">
-                            <i class="material-icons text-3xl text-gradient text-info mb-3">public</i>
-                            <h5>Easy Rent</h5>
-                            <p>Only from home, you can find what you need</p>
+                            <i class="material-icons text-3xl text-light mb-2">done_all</i>
+                            <h5 class="lead">Easy Rent</h5>
+                            <p class="text-light">Only from home, you can find what you need</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info">
-                            <i class="material-icons text-3xl text-gradient text-info mb-3">stream</i>
-                            <h5>Responsive Admin</h5>
-                            <p>If you got troubles, just contact us on WhatsApp</p>
+                            <i class="material-icons text-3xl text-light mb-2">quickreply</i>
+                            <h5 class="lead">Responsive Admin</h5>
+                            <p class="text-light">If you got troubles, just contact us on WhatsApp</p>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-start mt-4">
+                <hr class="border border-light border-2 my-3">
+                <div class="row justify-content-start px-4 mb-3">
                     <div class="col-md-6">
                         <div class="info">
-                            <i class="material-icons text-3xl text-gradient text-info mb-3">apps</i>
-                            <h5>Many Stocks</h5>
-                            <p>We guaranteed, based on other stores in Malang</p>
+                            <i class="material-icons text-3xl text-light mb-2">apps</i>
+                            <h5 class="lead">Many Stocks</h5>
+                            <p class="text-light">We guaranteed, based on other stores in Malang</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="info">
-                            <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
-                            <h5>Feedback</h5>
-                            <p>We wait for your impactfull feedback</p>
+                            <i class="material-icons text-3xl text-light mb-2">3p</i>
+                            <h5 class="lead">Feedback</h5>
+                            <p class="text-light">We wait for your impactfull feedback</p>
                         </div>
                     </div>
                 </div>

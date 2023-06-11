@@ -124,10 +124,10 @@
                             <div class="d-flex align-items-center">
                                 @if (auth()->user()->photo)
                                     <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="User Photo"
-                                        class="rounded-circle mx-2 img-fluid" style="width:25px; height:30px">
+                                        class="rounded-circle mx-2 img-fluid" style="width:30px; height:30px">
                                 @else
                                     <img src="{{ asset('storage/user-photos/no-photo.png') }}" alt="User Photo"
-                                        class="rounded-circle mx-2 img-fluid" style="width:25px; height:30px">
+                                        class="rounded-circle mx-2 img-fluid" style="width:30px; height:30px">
                                 @endif
                                 Hi, {{ auth()->user()->username }}
                                 <img src="/assets/img/down-arrow-white.svg" alt="down-arrow"

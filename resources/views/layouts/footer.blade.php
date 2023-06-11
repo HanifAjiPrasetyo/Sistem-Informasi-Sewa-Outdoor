@@ -31,27 +31,26 @@
             <div class="col-lg-8 d-flex">
                 <div class="col-md-2 col-sm-6 col-6 mb-4">
                     <div>
-                        <h6 class="text-sm">Company</h6>
+                        <h6 class="fs-5 text-success fw-bold">Jump To</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/presentation" target="_blank">
+                                <a class="nav-link fw-bold" href="/about-us" target="_blank">
                                     About Us
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/templates/free" target="_blank">
-                                    Freebies
+                                <a class="nav-link fw-bold" href="/products" target="_blank">
+                                    Products
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/templates/premium"
-                                    target="_blank">
-                                    Premium Tools
+                                <a class="nav-link fw-bold" href="/register" target="_blank">
+                                    Sign Up
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/blog" target="_blank">
-                                    Blog
+                                <a class="nav-link fw-bold" href="/login" target="_blank">
+                                    Sign In
                                 </a>
                             </li>
                         </ul>
@@ -59,78 +58,31 @@
                 </div>
                 <div class="col-md-2 col-sm-6 col-6 mb-4">
                     <div>
-                        <h6 class="text-sm">Resources</h6>
+                        <h6 class="fs-5 text-success fw-bold">Tools</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="https://iradesign.io/" target="_blank">
-                                    Illustrations
+                                <a class="nav-link fw-bold" href="https://laravel.com/" target="_blank">
+                                    Laravel
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/bits" target="_blank">
-                                    Bits & Snippets
+                                <a class="nav-link fw-bold" href="https://www.mysql.com/" target="_blank">
+                                    MySQL
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.creative-tim.com/affiliates/new" target="_blank">
-                                    Affiliate Program
+                                <a class="nav-link fw-bold" href="https://www.creative-tim.com/" target="_blank">
+                                    Material Kit
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="https://fontawesome.com/" target="_blank">
+                                    Font Awesome
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                {{-- <div class="col-md-2 col-sm-6 col-6 mb-4">
-                <div>
-                    <h6 class="text-sm">Help & Support</h6>
-                    <ul class="flex-column ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/contact-us" target="_blank">
-                                Contact Us
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center" target="_blank">
-                                Knowledge Center
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://services.creative-tim.com/?ref=ct-mk2-footer"
-                                target="_blank">
-                                Custom Development
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/sponsorships" target="_blank">
-                                Sponsorships
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
-                <div>
-                    <h6 class="text-sm">Legal</h6>
-                    <ul class="flex-column ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/terms-of-service"
-                                target="_blank">
-                                Terms & Conditions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/privacy-policy"
-                                target="_blank">
-                                Privacy Policy
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
-                                Licenses (EULA)
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div> --}}
             </div>
         </div>
     </div>

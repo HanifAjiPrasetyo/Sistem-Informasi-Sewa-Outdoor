@@ -46,9 +46,14 @@
         </a><br><br>
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center align-items-center">
-                <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
-                    style="height:270px; width:400px">
-                <div class="h5 mt-2">{{ $product->name }}</div>
+                @if ($product->image)
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
+                        style="height:200px; width:220px">
+                @else
+                    <img src="{{ asset('storage/product-images/no-img.jpg') }}" alt="Product Image"
+                        class="img-fluid rounded" style="height:200px; width:200px">
+                @endif
+                <div class="h5 mt-3">{{ $product->name }}</div>
                 <div class="small mt-2 fw-bold">
                     Price : Rp{{ number_format($product->price, 2, ',', '.') }} / day
                     <span class="mx-2 h6">|</span>

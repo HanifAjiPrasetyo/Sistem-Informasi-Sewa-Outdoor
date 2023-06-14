@@ -21,8 +21,8 @@
     <div class="container shadow-lg rounded bg-gradient-success">
         <div class="p-3">
             <div class="row justify-content-center">
-                <div class="col-md-7 text-center">
-                    <div class="card bg-gray-400 shadow my-3">
+                <div class="col-md-8 text-center">
+                    <div class="card shadow my-3">
                         <div class="m-auto p-3">
                             <img src="{{ asset('assets/img/LOGO-MC.jpg') }}" alt="Logo MC" class="img-fluid shadow"
                                 style="width: 300px; height:200px">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="text-light mb-3">
+                    <div class="text-light mb-4 fw-bold">
                         Malang Camp merupakan toko penyewaan alat-alat outdoor, berbasis di Malang. Kami mengembangkan
                         situs ini agar memudahkan pelanggan dalam menyewa alat-alat outdoor yang kami sediakan.
                         Karena kami percaya pelanggan kami membutuhkan segala kemudahan ini.

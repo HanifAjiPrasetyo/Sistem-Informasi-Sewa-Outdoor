@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="mt-4 me-4 text-dark fw-bold">
-                    <button type="button" class="btn bg-gradient-info btn-block" data-bs-toggle="modal"
+                    <button type="button" class="btn bg-gradient-success btn-block" data-bs-toggle="modal"
                         data-bs-target="#cartModal">
                         <i class="fa-solid fa-cart-shopping mx-1"></i>
                         Add to Cart
@@ -85,7 +85,7 @@
                                         data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></a>
                                     <div class="card-header pb-0 text-left">
                                         <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
-                                            alt="Item Image" style="height:120px; width:200px">
+                                            alt="Item Image" style="height:120px; width:150px">
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
                                     <div class="card-body pb-2">
@@ -99,7 +99,7 @@
                                             </div>
                                             <button type="submit" onclick="return confirm('Add to your cart?')"
                                                 class="btn bg-gradient-success btn-sm rounded w-75 mt-3 mb-2">
-                                                Add to Cart
+                                                + Add
                                             </button>
                                         </form>
                                     </div>

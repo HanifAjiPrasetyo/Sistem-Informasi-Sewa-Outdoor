@@ -20,17 +20,18 @@
 @section('container')
     <div class="container shadow-lg p-3 rounded w-50 bg-gradient-success">
         <div class="col-lg-8 text-center m-auto">
-            <div class="fs-6 text-light fw-bold">Pilih metode pembayaran Anda</div>
+            <div class="fs-6 text-light fw-bold">Selesaikan pembayaran Anda</div>
             <hr class="hr bg-light mt-2">
             <center>
                 <button class="btn btn-dark mt-3 text-xs" id="pay-button">
                     <i class="fa-solid fa-credit-card me-1"></i>
-                    Pilih
+                    Bayar
                 </button>
             </center>
             <input type="hidden" name="" value="{{ $pay_token }}" id="payToken">
         </div>
     </div>
+    <br><br>
     <script type="text/javascript">
         // For example trigger on button clicked, or any time you need
         var payButton = document.getElementById('pay-button');

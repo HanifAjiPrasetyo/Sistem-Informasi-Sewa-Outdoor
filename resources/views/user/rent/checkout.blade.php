@@ -116,7 +116,7 @@
                                         <center>
                                             <button type="submit" class="btn btn-success mt-2 fw-bold text-light">
                                                 <i class="fa-solid fa-money-bill me-1"></i>
-                                                Bayar
+                                                Process
                                             </button>
                                         </center>
                                     </form>

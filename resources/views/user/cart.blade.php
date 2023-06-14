@@ -74,13 +74,13 @@
 
                     @foreach ($carts as $row)
                         <div class="col-lg-11 m-auto">
-                            <div class="card rounded mb-3 bg-gray-400">
+                            <div class="card rounded mb-3">
                                 <div class="card-body p-3">
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-center">
                                             <img src="{{ asset('storage/' . $row->product->image) }}"
                                                 class="img-fluid rounded" alt="Item Image"
-                                                style="height:100px; width:200px">
+                                                style="height:100px; width:160px">
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 text-center">
                                             <p class="small text-dark fw-bold my-0">{{ $row->product->name }}</p>
@@ -118,7 +118,8 @@
                                                 <input type="hidden" name="cart_id" value="{{ $row->id }}">
                                                 <button type="submit" class="btn btn-dark btn-sm"
                                                     onclick="return confirm('Delete item?')">
-                                                    <i class="fas fa-circle-xmark text-danger fs-6 my-1"></i>
+                                                    <i class="fas fa-circle-xmark fs-6 my-1"
+                                                        style="color:rgb(255, 97, 97)"></i>
                                                 </button>
                                             </form>
                                         </div>
@@ -129,9 +130,12 @@
                     @endforeach
 
                     @if ($carts->count() !== 0)
-                        <div class="col-lg-4 ms-auto pb-2 shadow-lg p-4 rounded">
-                            <div class="h6 fw-bold text-light text-center">
-                                Total : Rp{{ number_format($carts->sum('subtotal'), 2, ',', '.') }} / day
+                        <div class="col-lg-4 ms-auto py-auto shadow-lg p-3 rounded bg-white">
+                            <div class="fw-bold text-center h6">
+                                Total :
+                                <span class="text-sm">
+                                    Rp{{ number_format($carts->sum('subtotal'), 2, ',', '.') }}
+                                </span>
                             </div>
                         </div>
                     @endif
@@ -140,7 +144,7 @@
 
                 <center>
                     <a href="/user/rent/checkout" class="btn btn-dark shadow">
-                        <i class="fa-solid fa-cash-register fa-lg text-success mx-1"></i>
+                        <i class="fa-solid fa-cash-register fa-lg mx-1" style="color:rgb(39, 253, 111)"></i>
                         Checkout
                     </a>
                 </center>

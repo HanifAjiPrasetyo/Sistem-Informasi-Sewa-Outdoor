@@ -113,6 +113,7 @@
                                 </div>
                                 <center>
                                     <button type="submit" class="btn btn-success">
+                                        <i class="fa-solid fa-pen-nib me-1"></i>
                                         Update
                                     </button>
                                 </center>

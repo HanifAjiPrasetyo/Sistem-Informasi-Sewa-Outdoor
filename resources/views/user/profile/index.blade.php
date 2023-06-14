@@ -76,7 +76,8 @@
                             <div class="fw-bold text-uppercase text-xs text-dark">{{ $user->address }}</div>
                         </div>
                         <div class="update text-end">
-                            <a href="/user/profile/{{ $user->id }}/edit" class="btn btn-info text-light fw-bold btn-sm">
+                            <a href="/user/profile/{{ $user->id }}/edit"
+                                class="btn btn-success text-light fw-bold btn-sm">
                                 <i class="fa-solid fa-pen-to-square mx-1 fs-6"></i>
                                 Edit
                             </a>

@@ -20,8 +20,14 @@
                         <div class="small fw-bold mb-1" style="color:black">Mulai Sewa :
                             {{ Carbon::parse($rent->rent_start)->locale('id_ID')->isoFormat('dddd, D MMMM Y H:m') }}
                         </div>
-                        <div class="small fw-bold mb-3" style="margin-bottom:10px;color:black">Akhir Sewa :
+                        <div class="small fw-bold mb-1" style="color:black">Akhir Sewa :
                             {{ Carbon::parse($rent->rent_end)->locale('id_ID')->isoFormat('dddd, D MMMM Y H:m') }}
+                        </div>
+                        <div class="small fw-bold mb-3"
+                            style="margin-bottom:10px; color:black; text-transform:capitalize;">Metode
+                            Pembayaran
+                            :
+                            {{ $rent->payment_method }}
                         </div>
                         <div class="card">
                             <div class="card-body">
@@ -59,13 +65,13 @@
                                             </td>
                                             <td style="padding: 10px;">
                                                 <small style="color:black;">
-                                                    Rp{{ number_format($rentProducts->sum('total_price'), 2, ',', '.') }}
+                                                    Rp{{ number_format($rentProducts->sum('total_price') * $rent->duration, 2, ',', '.') }}
                                                 </small>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <h3 style="color:darkblue; font-size:large; margin-top:6px">Silahkan hubungi
+                                <h3 style="color:rgb(0, 0, 0); font-size:large; margin-top:8px">Silahkan hubungi
                                     <span>
                                         <a href="https://api.whatsapp.com/send/?phone=6285755222360&text&type=phone_number&app_absent=0"
                                             style="text-decoration: none; color:rgb(109, 170, 48)">+6285755222360

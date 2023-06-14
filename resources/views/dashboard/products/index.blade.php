@@ -21,7 +21,7 @@
     @if (session()->has('error'))
         <div class="alert alert-danger alert-dismissible fade show w-50 ms-auto me-auto text-light" role="alert">
             <span class="alert-icon"><i class="fa-solid fa-triangle-exclamation fa-lg mx-2"></i></span>
-            <span class="alert-text text-light fw-bold fs-5">{{ session('error') }}</span>
+            <span class="alert-text text-light fs-5">{{ session('error') }}</span>
             <button type="button" class="btn-close mx-2 d-flex align-items-center" data-bs-dismiss="alert"
                 aria-label="Close">
                 <span aria-hidden="true" class="text-light fw-bold fs-4"><i class="fa-solid fa-xmark"></i></span>

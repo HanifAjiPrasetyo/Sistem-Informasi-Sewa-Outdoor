@@ -121,6 +121,18 @@
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">
+                                            @if ($rent->status == 'Unpaid')
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    <form action="/user/rent/reCheckout" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="rent_id" value="{{ $rent->id }}">
+                                                        <button type="submit"
+                                                            class="btn btn-sm btn-warning text-xxs my-auto">
+                                                            Pay
+                                                        </button>
+                                                    </form>
+                                                </span>
+                                            @endif
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ $rent->payment_method }}
                                             </span>

@@ -56,6 +56,7 @@ Route::get('/user/rent', [RentController::class, 'index'])->middleware('auth');
 Route::get('/user/rent/detail', [RentController::class, 'show'])->middleware('auth');
 Route::get('/user/rent/checkout', [RentController::class, 'checkout'])->middleware('auth');
 Route::post('/user/rent/checkout', [RentController::class, 'store'])->middleware('auth');
+Route::post('/user/rent/reCheckout', [RentController::class, 'reStore'])->middleware('auth');
 Route::get('/user/rent/print/{id}', [RentController::class, 'print'])->middleware('auth');
 
 // Route::get('/user/rent/pdf', [RentController::class, 'pdf'])->middleware('auth');

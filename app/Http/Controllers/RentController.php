@@ -131,6 +131,41 @@ class RentController extends Controller
         ]);
     }
 
+    public function reStore(Request $request)
+    {
+        $rentId = $request->rent_id;
+        $rent = Rent::find($rentId);
+        $rentProducts = RentProduct::where('rent_id', $rentId)->get();
+
+        $duration = $rent->duration;
+        $total_pay = $rentProducts->sum('total_price') * $duration;
+
+        Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        Config::$isProduction = false;
+        // Set sanitization on (default)
+        Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        Config::$is3ds = true;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $rent->rent_id,
+                'gross_amount' => $total_pay,
+            ],
+            'customer_details' => [
+                'first_name' => $rent->user->name,
+                'email' => $rent->user->email
+            ],
+        ];
+
+        $snapToken = Snap::getSnapToken($params);
+
+        return view('user.rent.payment', [
+            'pay_token' => $snapToken
+        ]);
+    }
+
     public function callback(Request $request)
     {
         $serverKey = config('midtrans.server_key');

@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'email' => '2141720090@student.polinema.ac.id',
             'password' => bcrypt('admin'),
         ]);
+        User::create([
+            'name' => 'User',
+            'username' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('user'),
+        ]);
 
         ProductCategory::create([
             'name' => 'Backpack',

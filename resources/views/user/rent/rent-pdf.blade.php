@@ -70,8 +70,8 @@
                             </span>
                         </div>
                         <div class="small text-dark">Status : <span class="text-xs">{{ $rent->status }}</span></div>
-                        <div class="small text-dark">Metode Pembayaran : <span
-                                class="text-xs">{{ $rent->payment_method }}</span></div>
+                        <div class="small text-dark">Metode Pembayaran : <span class="text-xs"
+                                style="text-transform: uppercase">{{ $rent->payment_method }}</span></div>
                     </div>
                 </div>
             </div>

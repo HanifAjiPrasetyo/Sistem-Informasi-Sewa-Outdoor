@@ -134,7 +134,7 @@
                                                 </span>
                                             @endif
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $rent->payment_method }}
+                                                class="text-secondary text-xs font-weight-bold text-uppercase">{{ $rent->payment_method }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-center">

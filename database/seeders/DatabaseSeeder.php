@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'username' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => '2141720090@student.polinema.ac.id',
             'password' => bcrypt('admin'),
         ]);
 

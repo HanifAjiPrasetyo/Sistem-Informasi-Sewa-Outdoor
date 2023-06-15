@@ -88,7 +88,10 @@
                                     @enderror
                                 </div>
                                 <center>
-                                    <button type="submit" class="btn btn-success">Add</button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa-solid fa-plus me-1"></i>
+                                        Add
+                                    </button>
                                 </center>
                             </form>
                         </div>

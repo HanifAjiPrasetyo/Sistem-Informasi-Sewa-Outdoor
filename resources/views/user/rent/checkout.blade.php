@@ -89,8 +89,8 @@
                                     </div>
                                 </div>
                                 <div class="mt-4 shadow bg-gray-100 rounded p-3 w-lg-75">
-                                    <div class="h6 mb-2 text-center">Detail</div>
-                                    <hr class="hr bg-dark text-center mt-0">
+                                    <div class="h6 mb-2">Detail</div>
+                                    <hr class="hr bg-dark mt-0">
                                     <form action="/user/rent/checkout" method="post">
                                         @csrf
                                         <label for="rent_start" class="fw-bold">Mulai Sewa</label>
@@ -106,16 +106,18 @@
 
                                         <label for="rent_end" class="fw-bold">Akhir Sewa</label>
                                         <input type="datetime-local" name="rent_end" id="rent_end"
-                                            class="form-control bg-gradient-light border-0 d-block mb-2 small px-2 py-1 w-lg-75 fw-bold"
+                                            class="form-control bg-gradient-light border-0 d-block mb-3 small px-2 py-1 w-lg-75 fw-bold"
                                             readonly>
+                                        <label for="" class="fw-bold">Kirim</label>
+                                        <input type="checkbox" name="" id="" class="form-control">
                                         <div class="h6 mt-4">
                                             <label for="total_price" class="h6">Total Bayar :</label>
                                             <input type="text" name="total_price" id="total_price"
                                                 class="px-2 fw-bold bg-transparent border-0 small text-dark" disabled>
                                         </div>
                                         <center>
-                                            <button type="submit" class="btn btn-success mt-2 fw-bold text-light">
-                                                <i class="fa-solid fa-money-bill me-1"></i>
+                                            <button type="submit" class="btn btn-success btn-sm mt-2 fw-bold text-light">
+                                                <i class="fa-solid fa-money-bill me-1 fs-6"></i>
                                                 Process
                                             </button>
                                         </center>

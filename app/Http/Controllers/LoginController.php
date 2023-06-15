@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,10 +20,12 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
+        $username = User::where('email', $request->email)->get();
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            if ($credentials['email'] == 'admin@gmail.com') {
+            if ($credentials['email'] == '2141720090@student.polinema.ac.id') {
                 return redirect()->intended('/dashboard');
             }
 

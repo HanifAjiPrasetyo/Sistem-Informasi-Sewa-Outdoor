@@ -20,8 +20,6 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $username = User::where('email', $request->email)->get();
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 

@@ -108,8 +108,6 @@
                                         <input type="datetime-local" name="rent_end" id="rent_end"
                                             class="form-control bg-gradient-light border-0 d-block mb-3 small px-2 py-1 w-lg-75 fw-bold"
                                             readonly>
-                                        <label for="" class="fw-bold">Kirim</label>
-                                        <input type="checkbox" name="" id="" class="form-control">
                                         <div class="h6 mt-4">
                                             <label for="total_price" class="h6">Total Bayar :</label>
                                             <input type="text" name="total_price" id="total_price"

@@ -128,7 +128,7 @@
                                                     <button type="submit"
                                                         class="btn btn-sm btn-info text-capitalize text-xxs my-2"
                                                         href="/dashboard/transactions/confirm?id={{ $rent->id }}"
-                                                        onclick="return confirm('Confrim Transaction?')">Confirm</button>
+                                                        onclick="return confirm('Confirm Transaction?')">Confirm</button>
                                                 </form>
                                             @endif
                                         </td>

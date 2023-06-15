@@ -31,7 +31,7 @@
             <input type="hidden" name="" value="{{ $pay_token }}" id="payToken">
         </div>
     </div>
-    <br><br>
+    <br><br><br>
     <script type="text/javascript">
         // For example trigger on button clicked, or any time you need
         var payButton = document.getElementById('pay-button');

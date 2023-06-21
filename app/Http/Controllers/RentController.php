@@ -218,7 +218,7 @@ class RentController extends Controller
             ]);
             return $pdf->download('invoice-' . $rent->rent_id . '.pdf');
         } else {
-            return redirect('/user/rent')->with('error', 'You are not a valid user 🫣');
+            return back()->with('error', 'You are not a valid user 🫣');
         }
     }
 

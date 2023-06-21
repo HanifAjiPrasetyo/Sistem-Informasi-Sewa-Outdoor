@@ -47,6 +47,8 @@
                                         @foreach ($rentProducts as $row)
                                             <tr style="font-size:small;text-align:center">
                                                 <td style="padding: 10px;">
+                                                    {{-- <img src="storage/{{ $row->product->image }}" alt="Item Image"
+                                                        style="width:40px; height:40px"> --}}
                                                     <small style="color:black;">{{ $row->product->name }}</small>
                                                 </td>
                                                 <td style="padding: 10px;">

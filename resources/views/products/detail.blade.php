@@ -46,11 +46,18 @@
         </a><br><br>
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center align-items-center">
-                <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-fluid rounded"
-                    style="height:270px; width:400px">>
-                <div class="h5 mt-2">{{ $product->name }}</div>
+                @if ($product->image)
+                    <img src="assets/img/backpack.jpg" alt="Product Image" class="img-fluid rounded"
+                        style="height:200px; width:220px">
+                @else
+                    <img src="assets/img/tent.jpg" alt="Product Image"
+                        class="img-fluid rounded" style="height:200px; width:200px">
+                @endif
+                <div class="h5 mt-3">{{ $product->name }}</div>
                 <div class="small mt-2 fw-bold">
-                    Price : IDR {{ $product->price }} / day | Stock : {{ $product->stock }}
+                    Price : Rp{{ number_format($product->price, 2, ',', '.') }} / day
+                    <span class="mx-2 h6">|</span>
+                    Stock : {{ $product->stock }}
                 </div>
                 <hr class="hr bg-dark w-75 m-auto mt-2">
                 <div class="col-9 mt-4 m-auto">
@@ -62,13 +69,14 @@
 
                 <div class="mt-4 me-4 text-dark fw-bold">
                     <button type="button" class="btn bg-gradient-success btn-block" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalSignUp">
-                        Rent
+                        data-bs-target="#cartModal">
+                        <i class="fa-solid fa-cart-shopping mx-1"></i>
+                        Add to Cart
                     </button>
                 </div>
 
-                <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+                <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-body p-0">
@@ -76,12 +84,12 @@
                                     <a type="button" class="fs-5 text-dark fw-bold text-end me-4 mt-3"
                                         data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></a>
                                     <div class="card-header pb-0 text-left">
-                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid rounded"
-                                            alt="Item Image" style="height:120px; width:200px">
+                                        <img src="assets/img/nesting.jpg" class="img-fluid rounded"
+                                            alt="Item Image" style="height:120px; width:150px">
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
                                     <div class="card-body pb-2">
-                                        <form role="form" action="/user/cart/add" method="post">
+                                        <form action="/user/cart/add" method="post">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <label class="fw-bold" for="quantity">Quantity :</label>
@@ -91,7 +99,7 @@
                                             </div>
                                             <button type="submit" onclick="return confirm('Add to your cart?')"
                                                 class="btn bg-gradient-success btn-sm rounded w-75 mt-3 mb-2">
-                                                Add to Cart
+                                                + Add
                                             </button>
                                         </form>
                                     </div>

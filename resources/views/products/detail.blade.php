@@ -47,10 +47,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-12 text-center align-items-center">
                 @if ($product->image)
-                    <img src="assets/img/backpack.jpg" alt="Product Image" class="img-fluid rounded"
+                    <img src="{{asset('assets/img/backpack.jpg')}}" alt="Product Image" class="img-fluid rounded"
                         style="height:200px; width:220px">
                 @else
-                    <img src="assets/img/tent.jpg" alt="Product Image"
+                    <img src="{{asset('assets/img/tent.jpg')}}" alt="Product Image"
                         class="img-fluid rounded" style="height:200px; width:200px">
                 @endif
                 <div class="h5 mt-3">{{ $product->name }}</div>
@@ -84,7 +84,7 @@
                                     <a type="button" class="fs-5 text-dark fw-bold text-end me-4 mt-3"
                                         data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></a>
                                     <div class="card-header pb-0 text-left">
-                                        <img src="assets/img/nesting.jpg" class="img-fluid rounded"
+                                        <img src="{{asset('assets/img/nesting.jpg')}}" class="img-fluid rounded"
                                             alt="Item Image" style="height:120px; width:150px">
                                         <p class="mb-0 mt-2 fw-bold">{{ $product->name }}</p>
                                     </div>
